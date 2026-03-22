@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>井島鍼灸院 リール動画 目次</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;700&family=Noto+Sans+JP:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --gold: #b8975a;
+    --gold-light: #d4b47a;
+    --gold-pale: #f5efe0;
+    --ink: #1a1410;
+    --ink-mid: #3d3228;
+    --ink-soft: #6b5a4a;
+    --paper: #faf6ef;
+    --paper-dark: #f0e8d8;
+    --line: rgba(184,151,90,0.25);
+    --radius: 8px;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Noto Sans JP', sans-serif;
+    background: var(--paper);
+    color: var(--ink);
+    min-height: 100vh;
+  }
+
+  /* ── HEADER ── */
+  header {
+    background: var(--ink);
+    padding: 40px 24px 32px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  header::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: repeating-linear-gradient(
+      45deg,
+      transparent,
+      transparent 18px,
+      rgba(184,151,90,0.04) 18px,
+      rgba(184,151,90,0.04) 19px
+    );
+  }
+  .header-kamon {
+    width: 48px; height: 48px;
+    margin: 0 auto 16px;
+    border: 1.5px solid var(--gold);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    color: var(--gold);
+    font-size: 22px;
+    position: relative;
+  }
+  .header-kamon::before {
+    content: '';
+    position: absolute;
+    inset: 4px;
+    border: 1px solid rgba(184,151,90,0.35);
+    border-radius: 50%;
+  }
+  h1 {
+    font-family: 'Noto Serif JP', serif;
+    font-size: clamp(20px, 5vw, 28px);
+    font-weight: 700;
+    color: #fff;
+    letter-spacing: 0.12em;
+    line-height: 1.4;
+  }
+  .header-sub {
+    font-size: 12px;
+    color: var(--gold-light);
+    letter-spacing: 0.2em;
+    margin-top: 8px;
+    text-transform: uppercase;
+  }
+  .header-line {
+    width: 60px; height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    margin: 14px auto 0;
+  }
+
+  /* ── CONTROLS ── */
+  .controls {
+    background: var(--paper-dark);
+    border-bottom: 1px solid var(--line);
+    padding: 16px 20px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 12px rgba(26,20,16,0.06);
+  }
+  .search-wrap {
+    position: relative;
+    max-width: 480px;
+    margin: 0 auto 12px;
+  }
+  .search-icon {
+    position: absolute;
+    left: 12px; top: 50%;
+    transform: translateY(-50%);
+    color: var(--gold);
+    font-size: 14px;
+    pointer-events: none;
+  }
+  #search {
+    width: 100%;
+    padding: 10px 14px 10px 36px;
+    border: 1px solid var(--line);
+    border-radius: 24px;
+    background: var(--paper);
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: 14px;
+    color: var(--ink);
+    outline: none;
+    transition: border-color .2s, box-shadow .2s;
+  }
+  #search:focus {
+    border-color: var(--gold);
+    box-shadow: 0 0 0 3px rgba(184,151,90,0.12);
+  }
+  #search::placeholder { color: var(--ink-soft); }
+  .filters {
+    display: flex; flex-wrap: wrap; gap: 6px;
+    justify-content: center;
+  }
+  .filter-btn {
+    padding: 5px 14px;
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: 12px;
+    letter-spacing: 0.05em;
+    border: 1px solid var(--line);
+    border-radius: 20px;
+    background: transparent;
+    color: var(--ink-soft);
+    cursor: pointer;
+    transition: all .18s;
+    white-space: nowrap;
+  }
+  .filter-btn:hover { border-color: var(--gold); color: var(--ink); }
+  .filter-btn.active {
+    background: var(--ink);
+    color: var(--gold-light);
+    border-color: var(--ink);
+  }
+
+  /* ── MAIN ── */
+  main {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 28px 16px 60px;
+  }
+  .stats {
+    font-size: 12px;
+    color: var(--ink-soft);
+    text-align: right;
+    margin-bottom: 20px;
+    letter-spacing: 0.05em;
+  }
+  .stats strong { color: var(--gold); }
+
+  /* ── SECTION ── */
+  .section { margin-bottom: 32px; }
+  .section-head {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 12px;
+  }
+  .section-icon {
+    width: 28px; height: 28px;
+    background: var(--ink);
+    border-radius: 6px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 14px;
+    flex-shrink: 0;
+  }
+  .section-title {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--ink);
+    letter-spacing: 0.08em;
+  }
+  .section-bar {
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, var(--line), transparent);
+  }
+  .section-count {
+    font-size: 11px;
+    color: var(--gold);
+    font-weight: 500;
+    letter-spacing: 0.05em;
+  }
+
+  /* ── GRID ── */
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 8px;
+  }
+  .card {
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 10px 12px;
+    cursor: default;
+    transition: border-color .15s, box-shadow .15s, transform .15s;
+    position: relative;
+    overflow: hidden;
+  }
+  .card::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    width: 3px;
+    background: var(--gold);
+    opacity: 0;
+    transition: opacity .15s;
+    border-radius: 2px 0 0 2px;
+  }
+  .card:hover {
+    border-color: rgba(184,151,90,0.45);
+    box-shadow: 0 2px 12px rgba(26,20,16,0.07);
+    transform: translateY(-1px);
+  }
+  .card:hover::before { opacity: 1; }
+  .card-title {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--ink);
+    line-height: 1.5;
+  }
+  .card-desc {
+    font-size: 11px;
+    color: var(--ink-soft);
+    margin-top: 4px;
+    line-height: 1.5;
+  }
+
+  /* ── EMPTY ── */
+  .no-result {
+    text-align: center;
+    padding: 60px 20px;
+    color: var(--ink-soft);
+  }
+  .no-result .nr-icon { font-size: 32px; margin-bottom: 12px; }
+  .no-result p { font-size: 14px; }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--ink);
+    text-align: center;
+    padding: 20px;
+    font-size: 11px;
+    color: rgba(212,180,122,0.5);
+    letter-spacing: 0.1em;
+  }
+
+  /* ── HIGHLIGHT ── */
+  mark {
+    background: rgba(184,151,90,0.25);
+    color: inherit;
+    border-radius: 2px;
+    padding: 0 1px;
+  }
+
+  @media (max-width: 480px) {
+    .grid { grid-template-columns: 1fr 1fr; }
+    .card-title { font-size: 12px; }
+    .card-desc { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-kamon">鍼</div>
+  <h1>井島鍼灸院<br>リール動画 目次</h1>
+  <p class="header-sub">Instagram Reels Index</p>
+  <div class="header-line"></div>
+</header>
+
+<div class="controls">
+  <div class="search-wrap">
+    <span class="search-icon">🔍</span>
+    <input type="text" id="search" placeholder="キーワードで検索（例：めまい、ツボ、難経）" oninput="render()">
+  </div>
+  <div class="filters" id="filters"></div>
+</div>
+
+<main>
+  <p class="stats" id="stats"></p>
+  <div id="content"></div>
+</main>
+
+<footer>© 井島鍼灸院 — Instagram @haruhiko.izima</footer>
+
+<script>
+const CATS = [
+  { name: "症状・疾患", icon: "🩺", items: [
+    ["メニエール病","内リンパ水腫によって平衡感覚・聴覚が障害される"],
+    ["眼精疲労","パソコン・スマホを使う時間が長くなっているため"],
+    ["不眠症","恐怖の対象になっていく"],
+    ["冷え症","脳や内臓が正常に動くために"],
+    ["うつ病","必ず改善できると信じます"],
+    ["気管支炎","急性気管支炎はかぜ症候群の一部"],
+    ["ムチウチ症","一般的なケガと比較して"],
+    ["帯状疱疹後神経痛","普段から体調を整えておくことです"],
+    ["めまい 症例紹介","無理のない治療を"],
+    ["飛蚊症って何？",""],
+    ["円形脱毛症 症例紹介","もうどうしたらいいかわからない"],
+    ["自律神経失調症 症例紹介","原因がわからない不調…その裏で起きていたこと"],
+    ["HSC","豊かな感性を持つ子とセロトニン（安心ホルモン）"],
+    ["息が入らない","またデスクワークの合間に"],
+    ["しびれ","あの「ジンジンする不快な感じ」が"],
+    ["かゆみ","鍼灸院でかゆい場所に刺さない理由"],
+    ["むくみ","グリコカリックスは"],
+    ["のぼせ","ホットフラッシュの一因と考えられています"],
+    ["動悸","体内の情報を敏感に受け取る働きを"],
+    ["足の裏が痛い","最新の超音波検査を使った研究で"],
+    ["突発性難聴 症例紹介",""],
+    ["体温調節ができない 症例紹介",""],
+    ["過敏性腸症候群 症例紹介",""],
+    ["顎関節症","「動かさない」から「適度に動かして全身で治す」へ"],
+    ["腰痛","最新の考え方と体にやさしい解決法"],
+    ["耳鳴り","脳の働きに注目が集まっています"],
+    ["坐骨神経痛","生き生きとした毎日を"],
+    ["心臓神経症","検査では異常がないと言われた"],
+    ["起立性低血圧","少しずつ心と体を整えていきましょう"],
+    ["咳だけが長く続く理由とは？","注意すべき咳の特徴"],
+    ["更年期障害","できるだけ早くその時期を乗り越えられると考えます"],
+    ["痔（じ）","手術をせずに体の中から改善したい方"],
+    ["円形脱毛症","ストレス症状に効果のある経穴を"],
+    ["不妊に悩む方へ","海外の研究で報告されています"],
+    ["捻挫","「RICE」から「POLICE」へ"],
+    ["膝痛","キーワードは「姿勢制御」と「運動連鎖」"],
+    ["肘痛","モヤモヤ血管という新しい視点です"],
+    ["不整脈","特に異常はないけれど気になるという方には"],
+    ["坐骨神経痛（片側）","片側のお尻・太ももふくらはぎ・親指まで痛みが続く"],
+    ["排尿障害","尿量や排尿回数を正常にするための治療を"],
+    ["口内炎","口の中や舌の炎症のことです"],
+    ["パーキンソン病","医療機関との連携を心がけ"],
+    ["線維筋痛症（２）","痛み体験に関わる脳の部位との結びつきが強くなり"],
+    ["肘痛（野球肘）","野球ボールを投げる動作を繰り返すことで"],
+    ["めまい","大きく分けて"],
+    ["慢性疲労症候群","ご自身の生活を取り戻している方が見えます"],
+    ["PTSD","災害・戦争などを経験することによって"],
+    ["顔面神経麻痺が起こる仕組み","疲れやストレスなどが原因で"],
+    ["三叉神経痛","大変印象に残っている患者さんが見えます"],
+    ["線維筋痛症","脳や脊髄などの中枢神経系にあるということが分かっています"],
+    ["五十肩","最新の研究でどんどん明らかになっています"],
+    ["五十肩（治療）","通常の生活に戻れるよう"],
+    ["パニック障害","心身両面が関わっています"],
+    ["高血圧症","診察室血圧が収縮期140以上"],
+    ["膝痛のタイプ","どのような原因で起こったか"],
+    ["便秘","症状の程度により治療期間は変化しますが"],
+    ["足がつる（こむら返り）","神経と筋肉のセンサーのバランスが"],
+    ["頭痛","一度試してみる価値のある治療法です"],
+    ["不妊症","超えることができると信じます"],
+    ["花粉症","1998年19.6% / 2008年29.8% / 2019年42.5%と激増"],
+    ["逆子","認められない場合がほとんどです"],
+    ["顔面神経麻痺になる前に","疲れやストレスのゆでガエル状態"],
+    ["腱鞘炎","足三里の働きに深く関わっています"],
+    ["突発性難聴（治療）","それぞれに合わせた対応をさせていただきます"],
+    ["肩こり","危機感がないことが大きな問題だと思います"],
+  ]},
+  { name: "経穴（ツボ）", icon: "📍", items: [
+    ["太鈐穴","ぜひこの泉を思い出してください"],
+    ["関元穴","体の「エネルギーの貯蔵庫」を整えるツボ"],
+    ["列缺穴","頭頂は列缺・面口は合谷に収ぬ"],
+    ["照海穴","それが東洋医学の面白さなんです"],
+    ["雲門穴","天空の城への入り口みたいですよね"],
+    ["神門穴","自律神経と心の橋渡しをするツボとして注目"],
+    ["手三里穴","ただ腕の疲れを取るだけの場所ではありません"],
+    ["角孫穴","それが「メガネ・マスク頭痛」です"],
+    ["陽白穴","光り輝くような名前について"],
+    ["地倉穴",""],
+    ["承山穴","実際にさがしてみましょう"],
+    ["陰陵泉穴","なんだか秘境にある湧き水のような名前"],
+    ["天突穴","この天突をやさしく刺激してあげることで"],
+    ["至陰穴","逆子の治療で"],
+    ["鳩尾穴","いつのまにか「みぞおち」と"],
+    ["ヘバーデン結節","ポイントは「女性ホルモン」と「自律神経」です"],
+    ["曲池穴","肘という体の曲がり角にできた池という意味"],
+    ["三陰交穴","3つの陰の経絡が交わる場所という意味"],
+    ["風池穴","首の後ろ、なんだかいつもこっていませんか？"],
+    ["天柱穴","あなたの心と体をそっと支える"],
+    ["天枢穴","「物事の中心」や「大事な部分」"],
+    ["腎兪穴","「腎」に対応しているツボ"],
+    ["中脘穴","ツボの名前ってただの記号じゃないんですよ"],
+    ["青肓穴","希望が生まれるのです"],
+    ["大杼穴","大杼は「骨会」つまり骨に深く関係するツボ"],
+    ["魚際穴","スマホを使いすぎて親指が痛い"],
+    ["百会穴","これはもう…活用しない手はありません！"],
+    ["脈陰兪穴","それが心を包む「心包」とつながる"],
+    ["肺兪穴","あなたの呼吸が深くなりますように"],
+    ["肩井穴","ちょうどその間にある井戸の中にある場所"],
+    ["横骨・尺骨・正中神経麻痺","これらは絞扼性神経障害と呼ばれ"],
+    ["気海穴","名前の中にとっても深い意味が"],
+    ["期門穴","期門は「肝経の募穴」と呼ばれ"],
+    ["翳風穴","耳たぶの陰に隠れて、風も当たらぬ凹みにあるツボ"],
+    ["万能のツボ「足三里」","効果と位置"],
+    ["足三里のツボ 実はスゴイ！","全身に影響を与える可能性を示していて"],
+    ["ツボ（経穴）の解剖学的な証拠","足三里の働きに深く関わっています"],
+    ["ツボの名前で何がわかるの？","体の部位や形態を示すツボです"],
+    ["361経穴の誕生","当時は138穴が記されていた"],
+    ["経穴のバイブル","鍼灸医学"],
+    ["内関穴","NASAが宇宙酔い対策として"],
+    ["下関穴","顎の違和感やお顔の症状でお悩みの方は"],
+    ["合谷穴","歯の痛みのどの痛み"],
+    ["三陰交穴（詳細）","3つの陰の経絡が交わる場所"],
+    ["曲池穴（詳細）","肘という体の曲がり角にできた池"],
+  ]},
+  { name: "東洋医学・鍼灸理論", icon: "📜", items: [
+    ["ペインマトリックス","不安・緊張・ストレスと神経の遷延化"],
+    ["鍼が脳に働く話","痛みと感情の意外な関係"],
+    ["やさしく解説「難経六十九難」","その経絡だけが乱れている場合です"],
+    ["伝説の攻略本「難経六十九難」","鍼灸の世界で有名な「虚実補瀉」"],
+    ["伝説の攻略本「難経三十難」","栄気の流れはいつも衛気と一緒なのか？"],
+    ["伝説の攻略本「難経八難」","のちに「命門」という考え方へ"],
+    ["伝説の攻略本「難経一難」","こんな大胆な疑問から始まります"],
+    ["伝説の攻略本「難経」の世界","「医学の難問ベスト81」に対して"],
+    ["陰陽思想","本来のあなたの力を引き出してくれる"],
+    ["それ、自律神経の乱れかも？","7つのサイン ⑥胃腸の不調"],
+    ["鍼灸診療の真髄","「鍼って、ツボに針を刺すだけじゃないの？」"],
+    ["鍼刺激による生体の反応","数㎝離れた経穴（ツボ）で変化する・真の東洋医学"],
+    ["体内ネットワーク「経絡」の真実","体中を縦横無尽に走る神秘的なネットワーク"],
+    ["中国古代の医学書・黄帝内経の秘密","ユネスコの世界記憶遺産に登録されました"],
+    ["日本最古の健康本「養生訓」","まさに健康長寿の達人でした"],
+    ["日本最古の医学書・国宝「医心方」","私たちがいま健康や医療を考えるうえでも"],
+    ["江戸時代の名鍼灸師・杉山和一の教育","多くの優秀な鍼灸師が育てられた"],
+    ["江戸時代の名鍼灸師・杉山和一の生涯","1610年から84歳まで生きた"],
+    ["日本の鍼灸の歴史（江戸時代まで）","高度な医療体系として確立されました"],
+    ["名著「東洋医学はなぜ効くのか」","鍼灸の効果メカニズムを"],
+    ["日本人だけが知らない！","東洋医学が今、世界で大注目されているわけ"],
+    ["小児鍼","自然治癒力を引き出します"],
+    ["寝違え","正体を見ていきましょう"],
+    ["寝違え 症例紹介",""],
+    ["日本最古の医学書「医心方」鍼灸","医心方は984年に"],
+  ]},
+  { name: "健康・養生・予防", icon: "🌿", items: [
+    ["長生きしてもらいたいと",""],
+    ["健康の見つけ方","今の社会ではまあまあ健康と"],
+    ["理不尽に打ち勝つ朝の習慣","もしよかったら試してみてください"],
+    ["病気を治す一番の秘訣","体の不調を教えてくれる"],
+    ["やる気を出す方法","体の中にやる気の物差しが"],
+    ["情報量が多すぎる","とても大切に思えます"],
+    ["眠れることが怖くなったら","楽しかった経験や"],
+    ["健康になる練習 その1","練習が必要な理由・一生の宝になります"],
+    ["健康になる練習 その2","人間の本物と偽物の違いの一つは"],
+    ["健康になる練習 その3","体を大切にするという意味・活性化し血流を取り戻します"],
+    ["健康になる練習 その4","自分なりのベストな方法をするとします"],
+    ["健康になる練習 その5","本当に色々な発見があります"],
+    ["健康になる練習 その6","体の細胞を優先するその判断基準として"],
+    ["あきらめないメンタルの作り方","患者さんの自然治癒力と"],
+    ["目にありがとうと言ってみましょう","ドクター約30〜40%が"],
+    ["鍼灸師の人間性","鍼灸師は、人を幸せにする"],
+    ["風邪 — 長期的な予防効果も",""],
+    ["肋間神経痛","東洋医学研究所による研究では"],
+  ]},
+  { name: "現代医学・研究・報告", icon: "🔬", items: [
+    ["鍼治療の技術は一朝一夕には育たない","（このグラフは）"],
+    ["鍼治療の技術訓練方法","痛みを出すことなく"],
+    ["こわくない鍼治療","あきらめないでこの効果的な治療法をご検討ください"],
+    ["NIH公式報告","鍼治療は高齢者の慢性腰痛を"],
+    ["JICM 自律神経失調症","自律神経に対する鍼治療効果の研究を紹介します"],
+    ["新しい脈診デバイスが開発されました","MATERIALより"],
+    ["足がつる（膝蓋腱痙攣）","神経と筋肉のセンサーのバランスが"],
+    ["捻挫","安易に放置すると繰り返し起きることもあり"],
+    ["こわくない鍼治療（詳細）","実施中ですあきらめないで"],
+    ["過敏性腸症候群（研究）","学校や会社に行きにくくなっており来院される方が"],
+    ["線維筋痛症（研究）","脳や脊髄などの中枢神経系にある"],
+  ]},
+];
+
+let activeFilter = "すべて";
+
+function esc(str) {
+  return str.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+}
+
+function highlight(text, query) {
+  if (!query) return esc(text);
+  const q = query.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  return esc(text).replace(new RegExp(q, 'gi'), m => `<mark>${m}</mark>`);
+}
+
+function render() {
+  const query = document.getElementById('search').value.trim().toLowerCase();
+  const filtered = CATS
+    .filter(s => activeFilter === 'すべて' || s.name === activeFilter)
+    .map(s => ({
+      ...s,
+      items: s.items.filter(([t, d]) =>
+        t.toLowerCase().includes(query) || d.toLowerCase().includes(query)
+      )
+    }))
+    .filter(s => s.items.length > 0);
+
+  const totalAll = CATS.reduce((a, s) => a + s.items.length, 0);
+  const totalShown = filtered.reduce((a, s) => a + s.items.length, 0);
+  document.getElementById('stats').innerHTML =
+    `全 <strong>${totalAll}</strong> 本 &nbsp;／&nbsp; 表示中 <strong>${totalShown}</strong> 本`;
+
+  const content = document.getElementById('content');
+  if (filtered.length === 0) {
+    content.innerHTML = `<div class="no-result"><div class="nr-icon">🔍</div><p>「${esc(query)}」に該当する動画が見つかりません</p></div>`;
+    return;
+  }
+
+  content.innerHTML = filtered.map(s => `
+    <div class="section">
+      <div class="section-head">
+        <div class="section-icon">${s.icon}</div>
+        <span class="section-title">${esc(s.name)}</span>
+        <div class="section-bar"></div>
+        <span class="section-count">${s.items.length}本</span>
+      </div>
+      <div class="grid">
+        ${s.items.map(([title, desc]) => `
+          <div class="card">
+            <div class="card-title">${highlight(title, query)}</div>
+            ${desc ? `<div class="card-desc">${highlight(desc, query)}</div>` : ''}
+          </div>
+        `).join('')}
+      </div>
+    </div>
+  `).join('');
+}
+
+// Build filter buttons
+const filterRow = document.getElementById('filters');
+['すべて', ...CATS.map(c => c.name)].forEach(name => {
+  const btn = document.createElement('button');
+  btn.className = 'filter-btn' + (name === 'すべて' ? ' active' : '');
+  btn.textContent = name;
+  btn.onclick = () => {
+    activeFilter = name;
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    render();
+  };
+  filterRow.appendChild(btn);
+});
+
+render();
+</script>
+</body>
+</html>
