@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>はり治療専門チャンネル｜動画目次</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;600;700&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --gold: #C9A84C;
+  --gold-light: #E8D5A3;
+  --gold-dark: #8B6914;
+  --dark: #1A1510;
+  --dark2: #2C2418;
+  --cream: #F5F0E8;
+  --cream2: #EDE8DC;
+  --text: #2C2418;
+  --text-muted: #6B5D4A;
+  --border: rgba(201,168,76,0.25);
+  --card-bg: #FDFAF5;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Noto Sans JP',sans-serif;background:var(--cream2);color:var(--text);min-height:100vh;}
+
+/* HERO */
+.hero{
+  background:var(--dark);
+  background-image:
+    radial-gradient(ellipse at 20% 50%,rgba(201,168,76,.08) 0%,transparent 60%),
+    radial-gradient(ellipse at 80% 20%,rgba(201,168,76,.05) 0%,transparent 50%),
+    repeating-linear-gradient(45deg,transparent,transparent 40px,rgba(201,168,76,.02) 40px,rgba(201,168,76,.02) 41px);
+  padding:52px 24px 36px;
+  text-align:center;
+  position:relative;
+}
+.hero::after{content:'';position:absolute;bottom:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);}
+.hero-emblem{width:60px;height:60px;border:1.5px solid var(--gold);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 18px;font-family:'Noto Serif JP',serif;font-size:20px;color:var(--gold);background:rgba(201,168,76,.08);}
+.hero h1{font-family:'Noto Serif JP',serif;font-size:26px;font-weight:700;color:#fff;line-height:1.5;letter-spacing:.05em;margin-bottom:4px;}
+.hero-sub{font-size:11px;letter-spacing:.25em;color:var(--gold);text-transform:uppercase;margin-bottom:8px;}
+.hero-desc{font-size:12px;color:rgba(255,255,255,.45);margin-top:8px;}
+
+/* CONTROLS */
+.controls{background:var(--cream);padding:18px 16px 14px;border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100;}
+.search-wrap{position:relative;max-width:600px;margin:0 auto 12px;}
+.search-wrap svg{position:absolute;left:14px;top:50%;transform:translateY(-50%);width:15px;height:15px;color:var(--gold);}
+.search-input{width:100%;padding:9px 16px 9px 40px;border:1px solid var(--border);border-radius:999px;background:#fff;font-family:'Noto Sans JP',sans-serif;font-size:13px;color:var(--text);outline:none;transition:border-color .2s;}
+.search-input:focus{border-color:var(--gold);}
+.search-input::placeholder{color:#9A8E7E;}
+
+/* TYPE TABS */
+.type-tabs{display:flex;gap:0;max-width:360px;margin:0 auto 12px;border:1px solid var(--border);border-radius:999px;overflow:hidden;background:#fff;}
+.type-tab{flex:1;padding:7px 0;border:none;background:transparent;font-family:'Noto Sans JP',sans-serif;font-size:13px;color:var(--text-muted);cursor:pointer;transition:all .15s;text-align:center;}
+.type-tab.active{background:var(--dark);color:var(--gold);}
+
+/* FILTER TABS */
+.filter-tabs{display:flex;gap:6px;flex-wrap:wrap;justify-content:center;max-width:700px;margin:0 auto;}
+.filter-tab{padding:4px 12px;border-radius:999px;border:1px solid var(--border);background:transparent;font-family:'Noto Sans JP',sans-serif;font-size:11px;color:var(--text-muted);cursor:pointer;transition:all .15s;white-space:nowrap;}
+.filter-tab.active{background:var(--dark);color:var(--gold);border-color:var(--dark);}
+.filter-tab:hover:not(.active){border-color:var(--gold);color:var(--gold-dark);}
+
+/* MAIN */
+.main{max-width:980px;margin:0 auto;padding:22px 16px 48px;}
+.count-bar{text-align:right;font-size:11px;color:var(--text-muted);margin-bottom:18px;}
+.count-bar span{color:var(--text);font-weight:500;}
+
+/* SECTION */
+.section{margin-bottom:32px;}
+.section-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;padding-bottom:8px;border-bottom:1px solid var(--border);}
+.section-title{display:flex;align-items:center;gap:9px;font-family:'Noto Serif JP',serif;font-size:15px;font-weight:600;color:var(--text);}
+.section-icon{width:26px;height:26px;border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:13px;}
+.section-count{font-size:11px;color:var(--gold);font-weight:500;}
+
+/* CARD GRID */
+.card-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:10px;}
+
+.card{background:var(--card-bg);border:1px solid rgba(201,168,76,.2);border-radius:10px;padding:12px 14px;cursor:pointer;transition:all .18s;text-decoration:none;display:block;position:relative;overflow:hidden;}
+.card::before{content:'';position:absolute;top:0;left:0;width:3px;height:100%;background:var(--cat-color,var(--gold));opacity:.6;}
+.card:hover{border-color:var(--gold);transform:translateY(-2px);box-shadow:0 4px 14px rgba(139,105,20,.12);}
+
+/* SHORT card style */
+.card.short-card{border-radius:10px;}
+.card.short-card::before{background:var(--cat-color,#E53935);}
+
+.card-platform{display:flex;align-items:center;gap:5px;font-size:10px;color:var(--text-muted);margin-bottom:5px;letter-spacing:.05em;}
+.yt-icon{width:14px;height:10px;background:#FF0000;border-radius:2px;position:relative;display:inline-block;flex-shrink:0;}
+.yt-icon::after{content:'';position:absolute;left:50%;top:50%;transform:translate(-30%,-50%);border-left:5px solid white;border-top:3px solid transparent;border-bottom:3px solid transparent;}
+.short-badge{display:inline-flex;align-items:center;gap:3px;background:#FF0000;color:#fff;font-size:9px;font-weight:700;padding:1px 6px;border-radius:3px;letter-spacing:.05em;}
+
+.card-title{font-size:13px;font-weight:700;color:var(--text);line-height:1.45;margin-bottom:4px;}
+.card-desc{font-size:10px;color:var(--text-muted);line-height:1.5;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;}
+
+/* LOADING / EMPTY */
+.loading{text-align:center;padding:60px 0;color:var(--text-muted);}
+.empty{text-align:center;padding:40px 0;color:var(--text-muted);font-size:13px;}
+
+@media(max-width:480px){
+  .hero h1{font-size:20px;}
+  .card-grid{grid-template-columns:1fr 1fr;}
+}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="hero-emblem">鍼</div>
+  <p class="hero-sub">YouTube Channel Index</p>
+  <h1>はり治療専門チャンネル<br>動画 目次</h1>
+  <p class="hero-desc">鍼灸・はり治療に関する専門動画ライブラリ</p>
+</header>
+
+<div class="controls">
+  <div class="search-wrap">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+    <input class="search-input" type="text" id="searchInput" placeholder="キーワードで検索（例：肩こり、ツボ、腰痛）">
+  </div>
+  <div class="type-tabs" id="typeTabs">
+    <button class="type-tab active" data-type="すべて">すべて</button>
+    <button class="type-tab" data-type="ロング">▶ ロング動画</button>
+    <button class="type-tab" data-type="ショート">⚡ ショート</button>
+  </div>
+  <div class="filter-tabs" id="filterTabs">
+    <button class="filter-tab active" data-cat="すべて">すべて</button>
+    <button class="filter-tab" data-cat="症状・疾患">症状・疾患</button>
+    <button class="filter-tab" data-cat="ツボ・経穴">ツボ・経穴</button>
+    <button class="filter-tab" data-cat="東洋医学・理論">東洋医学・理論</button>
+    <button class="filter-tab" data-cat="セルフケア・養生">セルフケア・養生</button>
+    <button class="filter-tab" data-cat="施術・治療紹介">施術・治療紹介</button>
+    <button class="filter-tab" data-cat="その他">その他</button>
+  </div>
+</div>
+
+<main class="main">
+  <div class="count-bar" id="countBar">読み込み中...</div>
+  <div id="content"></div>
+</main>
+
+<script>
+const CHANNEL_ID = 'UCjjbCYGGel9EJUftVjbSFcA';
+
+const CAT_COLORS = {
+  '症状・疾患':    '#8B2020',
+  'ツボ・経穴':    '#1A4A6E',
+  '東洋医学・理論':'#2D6B3E',
+  'セルフケア・養生':'#5A3A7E',
+  '施術・治療紹介':'#7A5A1A',
+  'その他':        '#4A4A4A'
+};
+const CAT_ICONS = {
+  '症状・疾患':    '🩺',
+  'ツボ・経穴':    '☯',
+  '東洋医学・理論':'📖',
+  'セルフケア・養生':'🌿',
+  '施術・治療紹介':'💉',
+  'その他':        '▶'
+};
+
+// ===== LONG VIDEOS (from screenshots 1,2,3) =====
+const LONG = [
+  // 症状・疾患
+  {title:'緑内障 可能性',          desc:'緑内障の可能性はあるかを解説',    cat:'症状・疾患'},
+  {title:'三叉神経痛',              desc:'正しい対処法',                     cat:'症状・疾患'},
+  {title:'花粉症 変わる',           desc:'鍼灸治療で花粉症は変わる？首穴公開', cat:'症状・疾患'},
+  {title:'不眠症 ぐっすり',         desc:'鍼灸師が教える快眠アプローチ',     cat:'症状・疾患'},
+  {title:'経穴 全部伝えます',       desc:'鍼灸治療の一人者が経穴を全解説',   cat:'ツボ・経穴'},
+  {title:'技術 鍼灸治療',           desc:'鍼灸治療の技法や裁量・個別計画',   cat:'施術・治療紹介'},
+  {title:'自律神経失調症 驚きの関係', desc:'自律神経失調症に驚きの関係！',   cat:'症状・疾患'},
+  {title:'鍼灸の真髄とは 人間性',   desc:'鍼灸を考えてくれない人への真髄',  cat:'その他'},
+  {title:'木穀 療法',               desc:'未病まで万病を治す木穀療法',       cat:'施術・治療紹介'},
+  {title:'突発性難聴',              desc:'30年の経験で学んだ大切なこと',     cat:'症状・疾患'},
+  {title:'治療費 井島鍼灸院',       desc:'治療費について',                   cat:'その他'},
+  {title:'鍼治療 優劣訓練',         desc:'難病で効果的な鍼治療・優劣訓練',   cat:'施術・治療紹介'},
+  {title:'顔面神経麻痺 シンポジウム', desc:'多疾患間で表彰された顔面神経麻痺シンポジウム', cat:'症状・疾患'},
+  {title:'講演活動 黒野保三先生',   desc:'講演活動の現状と将来',             cat:'東洋医学・理論'},
+  {title:'筋膜上圧刺激 鍼治療の方法', desc:'黒野保三先生による筋膜上圧刺激', cat:'施術・治療紹介'},
+  {title:'職人芸 黒野保三先生',     desc:'鍼に目をつけた職人芸',             cat:'その他'},
+  {title:'真理 黒野保三先生',       desc:'自己を確立する真理',               cat:'その他'},
+  {title:'鍼灸医師 黒野保三先生',   desc:'21世紀を担う鍼灸医師',             cat:'東洋医学・理論'},
+  {title:'鍼灸師とは 黒野保三先生', desc:'東洋医学の鍼灸師とは',             cat:'東洋医学・理論'},
+  {title:'鍼治療の秘密②',          desc:'痛くない鍼治療の秘密②',           cat:'施術・治療紹介'},
+  {title:'アクセス 井島鍼灸院',     desc:'アクセス案内',                     cat:'その他'},
+  {title:'初めての方へ',            desc:'初めての方へ・井島鍼灸院',          cat:'その他'},
+  {title:'ご相談 井島鍼灸院',       desc:'ご相談はこちら',                   cat:'その他'},
+  {title:'鍼治療 3つの秘密',        desc:'痛くない鍼治療 3つの秘密',         cat:'施術・治療紹介'},
+  // Screenshot 2
+  {title:'異常なし なのに痛い',     desc:'酷い症状でなぜ異常なし？',         cat:'症状・疾患'},
+  {title:'花粉症 症例紹介',         desc:'円形脱毛症の学生症例',             cat:'症状・疾患'},
+  {title:'自律神経失調症 症例',     desc:'自律神経失調症の症例報告',         cat:'症状・疾患'},
+  {title:'めまい',                  desc:'なかなか原因を把握解消できないめまい', cat:'症状・疾患'},
+  {title:'HSC 活かせる個性',        desc:'東洋医学の入門として活かせる個性HSC', cat:'東洋医学・理論'},
+  {title:'経絡',                    desc:'東洋医学の入門・使えないネットワーク経絡', cat:'ツボ・経穴'},
+  {title:'症例 自律神経末梢組織',   desc:'自律神経末梢組織の症例紹介',       cat:'症状・疾患'},
+  {title:'過敏性腸症候群',          desc:'大学受験に合格するための過敏性腸症候群', cat:'症状・疾患'},
+  {title:'突発性難聴 発症から1年半', desc:'発症1年半後の突発性難聴',         cat:'症状・疾患'},
+  {title:'東洋医学 気血態',         desc:'東洋医学・気血態　黒野保三先生',   cat:'東洋医学・理論'},
+  {title:'片麻痺',                  desc:'代謝機能を引き出す片麻痺のヒント',  cat:'症状・疾患'},
+  {title:'長引く咳 なぜ続く？',     desc:'注意すべき原因と対策',             cat:'症状・疾患'},
+  {title:'不整脈 自律神経の調整',   desc:'なんとなく不安な不整脈',           cat:'症状・疾患'},
+  {title:'腱引き 正骨',             desc:'離れた手・撓骨の特殊療法',         cat:'施術・治療紹介'},
+  {title:'起立性低血圧',            desc:'立ち上がるとくらっとするめまい',   cat:'症状・疾患'},
+  {title:'心神経症 向き合うヒント',  desc:'心神経症と向き合うヒント',         cat:'症状・疾患'},
+  {title:'よく頂く質問 初診編',     desc:'よく頂く質問（初診編）',           cat:'その他'},
+  {title:'高血圧',                  desc:'また薬は飲みたくない高血圧',       cat:'症状・疾患'},
+  {title:'月経困難症 PMS 鍼',       desc:'月経困難症・PMS鍼',               cat:'症状・疾患'},
+  {title:'パーキンソン病 鍼灸ケア',  desc:'パーキンソン病基礎知識と鍼灸ケア', cat:'症状・疾患'},
+  {title:'坐骨神経痛',              desc:'歩くと脚が痛い・坐骨神経痛',       cat:'症状・疾患'},
+  {title:'胃食道逆流症 スッキリ',   desc:'胃食道逆流症スッキリ',             cat:'症状・疾患'},
+  {title:'顔面神経麻痺 ベル麻痺',   desc:'激薦する症例紹介・ベル麻痺顔面神経麻痺', cat:'症状・疾患'},
+  {title:'肋間神経痛 全公開',       desc:'肋間神経痛全公開',                 cat:'症状・疾患'},
+  {title:'ほっとする空間',          desc:'ほっとする空間・井島鍼灸院',       cat:'その他'},
+  {title:'口内炎 総まとめ',         desc:'口内炎総まとめ',                   cat:'症状・疾患'},
+  {title:'メニエール病 体質',       desc:'メニエール病の体質',               cat:'症状・疾患'},
+  {title:'顔面神経麻痺②',          desc:'鍼にできる事・顔面神経麻痺②',     cat:'症状・疾患'},
+  {title:'鍼灸医学 俯瞰 黒野先生',  desc:'鍼灸医学・黒野保三先生',           cat:'東洋医学・理論'},
+  {title:'ハント症候群 顔面神経麻痺', desc:'顔面神経麻痺症例発表',           cat:'症状・疾患'},
+  // Screenshot 3
+  {title:'小児鍼 刺さない',        desc:'小児鍼・刺さない',                  cat:'施術・治療紹介'},
+  {title:'膀胱炎 鍼灸ケア',        desc:'膀胱炎の鍼灸ケア',                  cat:'症状・疾患'},
+  {title:'腱鞘炎 取り戻す',        desc:'腱鞘炎を取り戻す',                  cat:'症状・疾患'},
+  {title:'症例紹介 顔面神経麻痺',  desc:'鍼灸の半年完全解明・顔面神経麻痺症例紹介', cat:'症状・疾患'},
+  {title:'肘痛 動き',              desc:'肘痛と動き',                        cat:'症状・疾患'},
+  {title:'捻挫 アプローチ',        desc:'捻挫へのアプローチ',                cat:'症状・疾患'},
+  {title:'めまい 安心',            desc:'めまいに安心',                      cat:'症状・疾患'},
+  {title:'風邪 鍼でサポート',      desc:'風邪を鍼でサポート',                cat:'症状・疾患'},
+  {title:'更年期障害 快適な毎日',  desc:'更年期障害で快適な毎日',            cat:'症状・疾患'},
+  {title:'PTSD フラッシュバック',  desc:'PTSDのフラッシュバック',            cat:'症状・疾患'},
+  {title:'寝違え 早く',            desc:'寝違えを早く改善',                  cat:'症状・疾患'},
+  {title:'排尿障害 希望',          desc:'排尿障害に希望',                    cat:'症状・疾患'},
+  {title:'五十肩 あがる',          desc:'五十肩があがる',                    cat:'症状・疾患'},
+  {title:'冷え症 鍼灸でサポート',  desc:'冷え症を鍼灸でサポート',            cat:'症状・疾患'},
+  {title:'腰痛 穏やかな毎日',      desc:'腰痛と穏やかな毎日',                cat:'症状・疾患'},
+  {title:'パニック障害 心の整え方', desc:'パニック障害の心の整え方',          cat:'症状・疾患'},
+  {title:'便秘 やさしいケア',      desc:'便秘へのやさしいケア',              cat:'症状・疾患'},
+  {title:'顎関節症 スムーズ',      desc:'顎関節症をスムーズに',              cat:'症状・疾患'},
+  {title:'円形脱毛症 自信',        desc:'円形脱毛症と自信',                  cat:'症状・疾患'},
+  {title:'眼精疲労 爽快',          desc:'眼精疲労を爽快に',                  cat:'症状・疾患'},
+  {title:'過敏性腸症候群 もう安心', desc:'過敏性腸症候群にもう安心',          cat:'症状・疾患'},
+  {title:'頭痛 スッとひと息',      desc:'頭痛がスッとひとく',                cat:'症状・疾患'},
+  {title:'足がつる なぜ起こる',    desc:'注意すべき原因と対策・足がつる',    cat:'症状・疾患'},
+  {title:'逆子 90%超え',           desc:'逆子90%超え',                       cat:'施術・治療紹介'},
+  {title:'うつ病 第一歩',          desc:'うつ病の第一歩',                    cat:'症状・疾患'},
+  {title:'腰痛 鍼による新アプローチ', desc:'鍼だけが治せない腰痛',           cat:'症状・疾患'},
+  {title:'不妊症 めぐり、やさしく', desc:'不妊症をめぐり、やさしく',          cat:'症状・疾患'},
+  {title:'むち打ち症 解明',        desc:'むち打ち症の解明',                  cat:'症状・疾患'},
+  {title:'慢性疲労症候群 道しるべ', desc:'慢性疲労症候群の道しるべ',          cat:'症状・疾患'},
+  {title:'線維筋痛症 やすむ力を',  desc:'線維筋痛症やすむ力を',              cat:'症状・疾患'},
+  {title:'糖尿病 よりどころ',      desc:'糖尿病のよりどころ',                cat:'症状・疾患'},
+];
+
+// ===== SHORT VIDEOS (from screenshots 4,5,6,7,8) =====
+const SHORT = [
+  // Screenshot 4 (short 1)
+  {title:'はり治療 解毒',          desc:'解毒を促す鍼治療',               cat:'施術・治療紹介'},
+  {title:'緑内障',                  desc:'しっかりした圧力高眼内出血',     cat:'症状・疾患'},
+  {title:'過敏性胃腸炎',           desc:'水分な部分の治療方法',           cat:'症状・疾患'},
+  {title:'不眠 こうしたことが',    desc:'不眠にこうしたことが',           cat:'症状・疾患'},
+  {title:'葛子 薬になる',          desc:'葛子が薬になる話',               cat:'東洋医学・理論'},
+  {title:'波形脱毛 美しい葛の花',  desc:'美しい波形脱毛の話',             cat:'症状・疾患'},
+  {title:'自律神経失調症',         desc:'ペインダウンした自律神経',       cat:'症状・疾患'},
+  {title:'不妊 大きな社会の変化',  desc:'不妊にある大きな社会の変化',     cat:'症状・疾患'},
+  {title:'慢性的疾患に鍼',         desc:'慢性的疾患へのアプローチ',       cat:'施術・治療紹介'},
+  {title:'若年学生の正史',         desc:'日本の鍼灸の歴史 約1688万円',    cat:'東洋医学・理論'},
+  {title:'顔面神経所 三叉神経症',  desc:'顔面神経所から三叉神経症',       cat:'症状・疾患'},
+  {title:'花粉症',                  desc:'花粉症の対応',                   cat:'症状・疾患'},
+  {title:'うつ病',                  desc:'うつ病とどうすればよいか',       cat:'症状・疾患'},
+  {title:'線維筋痛症②',           desc:'線維筋痛症の対応',               cat:'症状・疾患'},
+  {title:'鍼灸師の人間性',         desc:'鍼灸師の人間性について',         cat:'その他'},
+  {title:'治療物の法則・利用方法', desc:'治療の法則と利用方法',           cat:'施術・治療紹介'},
+  {title:'ところが先生の本子のそこでも', desc:'先生の経験話',             cat:'その他'},
+  {title:'諸感覚に生活の姿勢',     desc:'諸感覚に生活の姿勢',             cat:'セルフケア・養生'},
+  {title:'日本人だけが知らない',   desc:'日本人だけが知らない東洋医学',   cat:'東洋医学・理論'},
+  // Screenshot 5 (short 2)
+  {title:'かゆい場所に行きたくない運動', desc:'かゆい場所へのアプローチ',  cat:'セルフケア・養生'},
+  {title:'厳しい 胃カメラ グリコカリックス', desc:'胃カメラ・グリコカリックス', cat:'施術・治療紹介'},
+  {title:'ホットフラッシュ',       desc:'ホットフラッシュに一に二に',     cat:'症状・疾患'},
+  {title:'慢性疲労症候群の方々へ', desc:'慢性疲労症候群の対応',           cat:'症状・疾患'},
+  {title:'動物療法ではここです',   desc:'動物療法のポイント',             cat:'施術・治療紹介'},
+  {title:'NHK公式放送',            desc:'NHK公式放送の話',               cat:'その他'},
+  {title:'足の夏が短い',           desc:'足の夏が短い理由',               cat:'セルフケア・養生'},
+  {title:'至陰穴 生息穴',          desc:'逆子に効くツボ・至陰穴',         cat:'ツボ・経穴'},
+  {title:'突発性難聴 症例紹介',    desc:'突発性難聴の症例紹介',           cat:'症状・疾患'},
+  {title:'日本の鉛筆 産生し',      desc:'日本の鍼の産生',                 cat:'東洋医学・理論'},
+  {title:'合谷穴 症例紹介',        desc:'合谷穴の症例紹介',               cat:'ツボ・経穴'},
+  {title:'陥谷穴',                  desc:'陥谷穴の特徴',                   cat:'ツボ・経穴'},
+  {title:'バーデン痛 ヒント',      desc:'バーデン痛のヒント',             cat:'症状・疾患'},
+  {title:'この一体が一鍼',         desc:'この一体が一鍼のポイント',       cat:'施術・治療紹介'},
+  {title:'曲池穴',                  desc:'曲池穴の効果',                   cat:'ツボ・経穴'},
+  {title:'三陰交穴',                desc:'三陰交穴の活用',                 cat:'ツボ・経穴'},
+  {title:'三焦穴',                  desc:'三焦穴について',                 cat:'ツボ・経穴'},
+  {title:'五十肩 今こそ筋肉のセンサーバランス', desc:'五十肩の筋肉センサーバランス', cat:'症状・疾患'},
+  {title:'足三里の解釈 第二',      desc:'足三里解釈の第二のカラクリ',     cat:'ツボ・経穴'},
+  {title:'完骨穴',                  desc:'完骨穴と側頭部',                 cat:'ツボ・経穴'},
+  {title:'脾関穴',                  desc:'脾関穴について',                 cat:'ツボ・経穴'},
+  {title:'捻挫',                    desc:'捻挫のケア・RICEからPOLICE',     cat:'症状・疾患'},
+  {title:'無際公 旅簇',            desc:'無際公と旅簇',                   cat:'ツボ・経穴'},
+  {title:'結精の臂穴',              desc:'結精の臂穴について',             cat:'ツボ・経穴'},
+  {title:'脈候穴',                  desc:'脈候穴と診断',                   cat:'ツボ・経穴'},
+  {title:'モヤモヤ血管',           desc:'モヤモヤ血管の治療トラブル',     cat:'症状・疾患'},
+  {title:'脳化穴',                  desc:'脳化穴について',                 cat:'ツボ・経穴'},
+  {title:'肺兪穴',                  desc:'肺兪穴と関係する疾患',           cat:'ツボ・経穴'},
+  // Screenshot 6 (short 3)
+  {title:'脳雑穴',                  desc:'脳雑穴について',                 cat:'ツボ・経穴'},
+  {title:'ペンデックス 太祭穴',    desc:'ペンデックスと太祭穴',           cat:'ツボ・経穴'},
+  {title:'スマホ使われている',      desc:'スマホと身体への影響',           cat:'セルフケア・養生'},
+  {title:'目のピクピク 3タイプ',   desc:'目のピクピク3タイプ・ミオキミア', cat:'症状・疾患'},
+  {title:'わかりやすく解説 六十九穴', desc:'六十九穴の解説',              cat:'ツボ・経穴'},
+  {title:'伝統の世界 六十九穴',    desc:'六十九穴の伝統世界',             cat:'東洋医学・理論'},
+  {title:'飛蚊症って何？',          desc:'飛蚊症の解説',                   cat:'症状・疾患'},
+  {title:'元気穴',                  desc:'気のツボ・元気穴',               cat:'ツボ・経穴'},
+  {title:'円形脱毛症',              desc:'円形脱毛症を変えるツボ',         cat:'症状・疾患'},
+  {title:'別経穴',                  desc:'別経穴の活用',                   cat:'ツボ・経穴'},
+  {title:'十三穴 めまい・仕事の穴', desc:'伝説の13穴・めまいの口伝',      cat:'ツボ・経穴'},
+  {title:'自律神経 体の不調',      desc:'心と体のリストの不調・自律神経',  cat:'症状・疾患'},
+  {title:'神門穴',                  desc:'神門穴の効果',                   cat:'ツボ・経穴'},
+  {title:'HSC 難症状',             desc:'HSCとは・難症状へのアプローチ',   cat:'症状・疾患'},
+  {title:'手三里穴 症例紹介',      desc:'手三里穴の症例紹介',             cat:'ツボ・経穴'},
+  {title:'自律神経失調症 症例',    desc:'自律神経失調症の症例',           cat:'症状・疾患'},
+  {title:'陥谷穴',                  desc:'陥谷穴・メンタルの不調',         cat:'ツボ・経穴'},
+  {title:'陰陵穴',                  desc:'陰陵穴について',                 cat:'ツボ・経穴'},
+  {title:'息が入らない デスクワーク', desc:'息が入らない・デスクワーク',  cat:'セルフケア・養生'},
+  {title:'地倉穴',                  desc:'地倉穴と天の力の入り口',         cat:'ツボ・経穴'},
+  {title:'元気穴 効果',            desc:'元気穴の効果について',           cat:'ツボ・経穴'},
+  {title:'冷え',                    desc:'人間はセンサーの話・冷え',       cat:'症状・疾患'},
+  {title:'淡山穴',                  desc:'淡山穴について',                 cat:'ツボ・経穴'},
+  {title:'腓腹穴',                  desc:'腓腹穴と大きな原因',             cat:'ツボ・経穴'},
+  {title:'だるさ',                  desc:'だるさとメカニズム',             cat:'症状・疾患'},
+  {title:'内関穴',                  desc:'内関穴と胃の話',                 cat:'ツボ・経穴'},
+  {title:'天突穴',                  desc:'天突穴の効果',                   cat:'ツボ・経穴'},
+  {title:'しびれ ノイズ',           desc:'しびれ・ノイズのようなもの',     cat:'症状・疾患'},
+  {title:'下腹穴',                  desc:'下腹穴について',                 cat:'ツボ・経穴'},
+  // Screenshot 7 (short 4)
+  {title:'パーキンソン病',          desc:'パーキンソン病の鍼灸ケア',       cat:'症状・疾患'},
+  {title:'当営神経',                desc:'当営神経のしくみ',               cat:'東洋医学・理論'},
+  {title:'高血圧',                  desc:'高血圧のホルモン・血管内皮',     cat:'症状・疾患'},
+  {title:'顔面神経麻痺に鍼',       desc:'顔面神経麻痺に鍼で向き合う',     cat:'症状・疾患'},
+  {title:'猫',                      desc:'猫と健康の話',                   cat:'その他'},
+  {title:'口内炎',                  desc:'口内炎に効くアドバイス',         cat:'症状・疾患'},
+  {title:'胃食道逆流症',           desc:'胃食道逆流症の対処',             cat:'症状・疾患'},
+  {title:'鍼灸全生術 金属変え全',  desc:'鍼灸全生術について',             cat:'東洋医学・理論'},
+  {title:'鍼灸 これを信心として持ちましょう', desc:'鍼灸の心構え',       cat:'その他'},
+  {title:'瓦斯変全 邊急生',        desc:'瓦斯変全の対応',                 cat:'東洋医学・理論'},
+  {title:'38目穴の誕生',           desc:'38目穴の誕生について',           cat:'東洋医学・理論'},
+  {title:'この姿 在在の落としあな', desc:'在在の落とし穴',                 cat:'その他'},
+  {title:'幼間神経 自律神経力',    desc:'幼間神経と自律神経力',           cat:'症状・疾患'},
+  {title:'メニエール病',            desc:'メニエール病の鍼灸',             cat:'症状・疾患'},
+  {title:'鍼灸炎',                  desc:'鍼灸炎の対応',                   cat:'施術・治療紹介'},
+  {title:'泌尿症 鍼灸ストレス',    desc:'泌尿症と鍼灸ストレス',           cat:'症状・疾患'},
+  {title:'小児鍼',                  desc:'小児鍼について',                 cat:'施術・治療紹介'},
+  {title:'ムチウチ症',              desc:'ムチウチ症の西洋・東洋療法',     cat:'症状・疾患'},
+  {title:'カツ間 薬',              desc:'薬について',                     cat:'東洋医学・理論'},
+  {title:'時痛 鍼灸でリフレッシュ', desc:'時痛の鍼灸リフレッシュ',        cat:'症状・疾患'},
+  {title:'PTSD ストレスとの向き合い', desc:'PTSDとストレスの向き合い方',   cat:'症状・疾患'},
+  {title:'更年期障害 薬違い',      desc:'更年期障害と薬の違い',           cat:'症状・疾患'},
+  {title:'パニック症 蒼穴',        desc:'パニック症と蒼穴',               cat:'症状・疾患'},
+  {title:'捻挫 川板が治りになる',  desc:'捻挫の治り方',                   cat:'症状・疾患'},
+  {title:'俯仰 自律神経力',        desc:'俯仰と自律神経力',               cat:'症状・疾患'},
+  {title:'俯仰 気（はり）にできる', desc:'俯仰の気について',              cat:'東洋医学・理論'},
+  {title:'五十肩',                  desc:'五十肩の対応',                   cat:'症状・疾患'},
+  {title:'顎関節症 めまい',        desc:'顎関節症と13穴',                 cat:'症状・疾患'},
+  {title:'円形脱毛症',              desc:'円形脱毛症の対応',               cat:'症状・疾患'},
+  {title:'症例集 症例発表',        desc:'症例集の発表',                   cat:'症状・疾患'},
+  {title:'顔面神経麻痺（施術）',   desc:'顔面神経麻痺の施術',             cat:'症状・疾患'},
+  // Screenshot 8 (short 5)
+  {title:'気の流れ',                desc:'気の流れについて',               cat:'東洋医学・理論'},
+  {title:'不実穴',                  desc:'不実穴とその効果',               cat:'ツボ・経穴'},
+  {title:'真穴 季節',              desc:'真穴の季節対応',                 cat:'ツボ・経穴'},
+  {title:'神経症候 PMS',           desc:'神経症候とPMS',                  cat:'症状・疾患'},
+  {title:'気通穴',                  desc:'気通穴について',                 cat:'ツボ・経穴'},
+  {title:'元気穴の由来',           desc:'元気穴の由来を解説',             cat:'ツボ・経穴'},
+  {title:'坐骨神経痛',              desc:'坐骨神経痛に大きな生活',         cat:'症状・疾患'},
+  {title:'低体性低血圧',           desc:'低体性低血圧の対応',             cat:'症状・疾患'},
+  {title:'別穴',                    desc:'別穴と心の向上',                 cat:'ツボ・経穴'},
+  {title:'天衝穴',                  desc:'天衝穴の力',                     cat:'ツボ・経穴'},
+  {title:'饗兪穴',                  desc:'饗兪穴の活用',                   cat:'ツボ・経穴'},
+  {title:'子どもに寄り添う',       desc:'子どもに寄り添う鍼灸',           cat:'施術・治療紹介'},
+  {title:'一自 家族のこと',        desc:'一自・家族のこと',               cat:'その他'},
+  {title:'法 皮肉',                desc:'法・皮肉のアプローチ',           cat:'東洋医学・理論'},
+  {title:'大弄穴',                  desc:'大弄穴について',                 cat:'ツボ・経穴'},
+  {title:'農池穴',                  desc:'農池穴の活用',                   cat:'ツボ・経穴'},
+  {title:'不妊に悩む 法方',        desc:'不妊に悩む方への法方',           cat:'症状・疾患'},
+  {title:'天突の力は',              desc:'天突の力について',               cat:'ツボ・経穴'},
+  {title:'不妊に悩む方へ',         desc:'不妊に悩む方へのアドバイス',     cat:'症状・疾患'},
+  {title:'歴史的鍼灸治療 外国から', desc:'外国から見た歴史的鍼灸治療',    cat:'東洋医学・理論'},
+  {title:'来院した患者さんの状が良くなった', desc:'症例と患者さんの話',  cat:'施術・治療紹介'},
+  {title:'足三里の解釈カラクミ 第二', desc:'足三里解釈カラクミ第二',     cat:'ツボ・経穴'},
+  {title:'ツボの名前 どこでもいい？', desc:'ツボの名前とその意味',       cat:'ツボ・経穴'},
+  {title:'丹波紀竹の紹介',         desc:'丹波紀竹の生涯紹介',             cat:'東洋医学・理論'},
+  {title:'下ぼする壁落下ウイルスに', desc:'ウイルスと壁落下の話',        cat:'セルフケア・養生'},
+  {title:'中間穴の向き合い方',     desc:'中間穴の向き合い方',             cat:'ツボ・経穴'},
+  {title:'外関穴の骨格',           desc:'外関穴の骨格と活用',             cat:'ツボ・経穴'},
+  {title:'杉山和一の特徴',         desc:'杉山和一の生涯',                 cat:'東洋医学・理論'},
+  {title:'腰痛が下りる',           desc:'腰痛が下りる対応',               cat:'症状・疾患'},
+];
+
+const LONG_WITH_TYPE  = LONG .map(v=>({...v, type:'ロング'}));
+const SHORT_WITH_TYPE = SHORT.map(v=>({...v, type:'ショート'}));
+const ALL_VIDEOS = [...LONG_WITH_TYPE, ...SHORT_WITH_TYPE];
+
+const CAT_ORDER = ['症状・疾患','ツボ・経穴','東洋医学・理論','セルフケア・養生','施術・治療紹介','その他'];
+
+let currentType = 'すべて';
+let currentCat  = 'すべて';
+let currentQ    = '';
+
+function render(){
+  let list = ALL_VIDEOS;
+  if(currentType !== 'すべて') list = list.filter(v=>v.type===currentType);
+  if(currentCat  !== 'すべて') list = list.filter(v=>v.cat===currentCat);
+  if(currentQ){
+    const q=currentQ.toLowerCase();
+    list=list.filter(v=>v.title.toLowerCase().includes(q)||(v.desc||'').toLowerCase().includes(q));
+  }
+
+  const total=ALL_VIDEOS.length, shown=list.length;
+  document.getElementById('countBar').innerHTML=
+    `全 <span>${total}</span> 本 ／ 表示中 <span>${shown}</span> 本`;
+
+  if(!list.length){
+    document.getElementById('content').innerHTML='<div class="empty">該当する動画が見つかりませんでした。</div>';
+    return;
+  }
+
+  // Group by category within current filter
+  const groups={};
+  list.forEach(v=>{ if(!groups[v.cat])groups[v.cat]=[]; groups[v.cat].push(v); });
+
+  let html='';
+  CAT_ORDER.forEach(cat=>{
+    if(!groups[cat])return;
+    const vids=groups[cat];
+    const color=CAT_COLORS[cat]||'#4A4A4A';
+    const icon=CAT_ICONS[cat]||'▶';
+    html+=`<section class="section">
+      <div class="section-header">
+        <div class="section-title">
+          <div class="section-icon" style="background:${color}15;color:${color}">${icon}</div>
+          ${cat}
+        </div>
+        <span class="section-count">${vids.length}本</span>
+      </div>
+      <div class="card-grid">
+        ${vids.map(v=>{
+          const isShort=v.type==='ショート';
+          return `<a class="card${isShort?' short-card':''}"
+            href="https://www.youtube.com/channel/${CHANNEL_ID}" target="_blank"
+            style="--cat-color:${color}">
+            <div class="card-platform">
+              <span class="yt-icon"></span>
+              ${isShort?'<span class="short-badge">SHORT</span>':'YouTube'}
+            </div>
+            <div class="card-title">${v.title}</div>
+            ${v.desc?`<div class="card-desc">${v.desc}</div>`:''}
+          </a>`;
+        }).join('')}
+      </div>
+    </section>`;
+  });
+  document.getElementById('content').innerHTML=html;
+}
+
+// Events
+document.getElementById('searchInput').addEventListener('input',e=>{currentQ=e.target.value;render();});
+document.getElementById('typeTabs').addEventListener('click',e=>{
+  const b=e.target.closest('.type-tab'); if(!b)return;
+  document.querySelectorAll('.type-tab').forEach(x=>x.classList.remove('active'));
+  b.classList.add('active'); currentType=b.dataset.type; render();
+});
+document.getElementById('filterTabs').addEventListener('click',e=>{
+  const b=e.target.closest('.filter-tab'); if(!b)return;
+  document.querySelectorAll('.filter-tab').forEach(x=>x.classList.remove('active'));
+  b.classList.add('active'); currentCat=b.dataset.cat; render();
+});
+
+render();
+</script>
+</body>
+</html>
