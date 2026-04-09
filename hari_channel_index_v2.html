@@ -374,14 +374,6 @@ const SHORT_RAW=[
   ['"太衝穴"（たいしょうけつ）','https://youtube.com/shorts/6qFfy7PbWzY'],
   ['「鍼って効くの？」','https://youtube.com/shorts/oHTrhDa-REI'],
   ['バレット食道','https://www.youtube.com/shorts/j1r6n93B_1s'],
-
-  ['「AIと日本の鍼灸」','https://www.instagram.com/reel/DW2YmtwArlv/'],
-  ['"尺沢穴"（しゃくたくけつ）','https://www.instagram.com/reel/DWyDdvrAmiQ/'],
-  ['【難経七十五難】やさしく解説','https://www.instagram.com/reel/DWpYq3HguB8/'],
-  ['のどが詰まる','https://www.instagram.com/reel/DWkfbjuAsKN/'],
-  ['"太衝穴"（たいしょうけつ）','https://www.instagram.com/reel/DWfEAgPAtgw/'],
-  ['「鍼って効くの?」','https://www.instagram.com/reel/DWXkTEXAncD/'],
-  ['バレット食道','https://www.instagram.com/reel/DWTDwkrgpH2/'],
 ].map(([title,url])=>({title,url,cat:c(title),type:'ショート'}));
 
 const ALL=[...LONG,...SHORT_RAW];
@@ -412,7 +404,7 @@ function render(){
       </div>
       <div class="card-grid">
         ${vids.map(v=>`<a class="card" href="${v.url}" target="_blank" style="--cat-color:${color}">
-          <div class="card-platform">${v.url.includes('instagram')?'<span class="ig-icon"></span><span class="ig-badge">REEL</span>':'<span class="yt-icon"></span>'+(v.type==='ショート'?'<span class="short-badge">SHORT</span>':'YouTube')}</div>
+          <div class="card-platform"><span class="yt-icon"></span>${v.type==='ショート'?'<span class="short-badge">SHORT</span>':'YouTube'}</div>
           <div class="card-title">${v.title}</div>
         </a>`).join('')}
       </div>
