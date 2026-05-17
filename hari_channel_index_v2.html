@@ -71,6 +71,7 @@ body{font-family:'Noto Sans JP',sans-serif;background:var(--cream2);color:var(--
   </div>
   <div class="filter-tabs" id="filterTabs">
     <button class="filter-tab active" data-cat="すべて">すべて</button>
+    <button class="filter-tab" data-cat="まず見てほしい鍼治療の基本｜井島鍼灸院おすすめ動画">⭐ まず見てほしい鍼治療の基本</button>
     <button class="filter-tab" data-cat="症状・疾患">症状・疾患</button>
     <button class="filter-tab" data-cat="ツボ・経穴">ツボ・経穴</button>
     <button class="filter-tab" data-cat="東洋医学・理論">東洋医学・理論</button>
@@ -84,22 +85,25 @@ body{font-family:'Noto Sans JP',sans-serif;background:var(--cream2);color:var(--
   <div id="content"></div>
 </main>
 <script>
-const CAT_COLORS={'症状・疾患':'#8B2020','ツボ・経穴':'#1A4A6E','東洋医学・理論':'#2D6B3E','セルフケア・養生':'#5A3A7E','施術・治療紹介':'#7A5A1A','院内案内':'#3A5A5A'};
-const CAT_ICONS={'症状・疾患':'🩺','ツボ・経穴':'☯','東洋医学・理論':'📖','セルフケア・養生':'🌿','施術・治療紹介':'💉','院内案内':'🏥'};
-const CAT_ORDER=['症状・疾患','ツボ・経穴','東洋医学・理論','セルフケア・養生','施術・治療紹介','院内案内'];
+const FEATURED_CAT='まず見てほしい鍼治療の基本｜井島鍼灸院おすすめ動画';
+const CAT_COLORS={[FEATURED_CAT]:'#C9A84C','症状・疾患':'#8B2020','ツボ・経穴':'#1A4A6E','東洋医学・理論':'#2D6B3E','セルフケア・養生':'#5A3A7E','施術・治療紹介':'#7A5A1A','院内案内':'#3A5A5A'};
+const CAT_ICONS={[FEATURED_CAT]:'⭐','症状・疾患':'🩺','ツボ・経穴':'☯','東洋医学・理論':'📖','セルフケア・養生':'🌿','施術・治療紹介':'💉','院内案内':'🏥'};
+const CAT_ORDER=[FEATURED_CAT,'症状・疾患','ツボ・経穴','東洋医学・理論','セルフケア・養生','施術・治療紹介','院内案内'];
 
 function c(title){
   const t=title;
   if(/穴|けつ|ごうこく|たいけい|かんげん|れっけつ|しょうかい|しんもん|てさんり|かくそん|ようはく|ちそう|うんもん|しょうざん|いんりょうせん|ないかん|てんとつ|げかん|しいん|ずいけつ|だんちゅう|かんこつ|ぎょさい|ひゃくえ|けんせい|きかい|きもん|てんすう|じんゆ|ちゅうかん|こうこう|だいじょ|ふうち|てんちゅう|はいゆ|けついんゆ|百会|合谷|足三里|三陰交|太衝|内関|天突|曲池|翳風|膻中|完骨|魚際|肺兪|肩井|気海|期門|天枢|腎兪|中脘|膏肓|大杼|風池|天柱|厥陰兪|鳩尾|曲池|三陰交|翳風|膻中/.test(t)) return 'ツボ・経穴';
-  if(/難経|経絡|東洋医学|気血|陰陽|養生訓|医心方|黄帝内経|生体制御|穴名考|江戸|杉山和一|鍼灸医学の歴史|361経穴|黒野式|日本最古|中国最古|黄帝八十一難経|脈診/.test(t)) return '東洋医学・理論';
+  if(/難経|経絡|東洋医学|気血|陰陽|養生訓|医心方|黄帝内経|生体制御|穴名考|江戸|杉山和一|鍼灸医学の歴史|361経穴|黒野式|日本最古|中国最古|黄帝八十一難経|脈診|本神篇|九鍼十二原|上古天真論|陰陽応象大論/.test(t)) return '東洋医学・理論';
   if(/逆子.*セルフ|養生|セルフケア/.test(t)) return 'セルフケア・養生';
-  if(/症例|改善.*過程|治療方法.*紹介|施術方法|訓練方法|生体制御療法|技術訓練|無痛|刺さない|人間性|研究.*紹介|鍼で炎症|足三里.*研究|解剖学的|必読書|柳原法|発症後.*注意|鍼灸.*真髄|世界で話題|今世界|治し方|鍼治療.*できること|鍼灸院で治療する/.test(t)) return '施術・治療紹介';
+  if(/症例|改善.*過程|治療方法.*紹介|施術方法|訓練方法|生体制御療法|技術訓練|無痛|刺さない|人間性|研究.*紹介|鍼で炎症|足三里.*研究|解剖学的|必読書|柳原法|発症後.*注意|鍼灸.*真髄|世界で話題|今世界|治し方|鍼治療.*できること|鍼灸院で治療する|ファシア|保険適用|世界.*研究|AIと/.test(t)) return '施術・治療紹介';
   if(/アクセス|受付時間|治療費|初めての方|相談|ほっとする空間|よく頂くご質問|屋内パーク/.test(t)) return '院内案内';
   return '症状・疾患';
 }
 
 const LONG=[
-  {title:'「鍼って効くの？」に65歳の鍼灸師が本気で答えます',cat:'施術・治療紹介',url:'https://www.youtube.com/watch?v=ztTTCCWhzxo'},
+  {title:'なぜ人は老いるのか？『上古天真論』に学ぶ養生の知恵！',cat:'東洋医学・理論',url:'https://youtu.be/n6LrkqCpKIY'},
+  {title:'【鍼はなぜ効くのか？】ファシアと自律神経からわかりやすく解説！',cat:'施術・治療紹介',url:'https://youtu.be/Cc_hyms2pGo',featured:true},
+  {title:'「鍼って効くの？」に65歳の鍼灸師が本気で答えます',cat:'施術・治療紹介',url:'https://www.youtube.com/watch?v=ztTTCCWhzxo',featured:true},
   {title:'【膀胱炎】菌がいないのに痛いのはなぜ？薬が効かない違和感の原因',cat:'症状・疾患',url:'https://www.youtube.com/watch?v=YJn2B17T2qI'},
   {title:'「なぜ私だけ花粉症？」止まらない鼻水…原因は「花粉の量」だけではありません',cat:'症状・疾患',url:'https://www.youtube.com/watch?v=FApT3JYvRts'},
   {title:'円形脱毛症と向き合った141日間の記録。鍼灸による生体制御の可能性',cat:'症状・疾患',url:'https://www.youtube.com/watch?v=HKRqo49bGIE'},
@@ -107,9 +111,9 @@ const LONG=[
   {title:'【驚きの症例報告！】なぜ、原因不明のめまいが劇的に改善したのか？',cat:'症状・疾患',url:'https://www.youtube.com/watch?v=JYM_cnoirHo'},
   {title:'【HSCと小児鍼！】なぜ肌に触れるだけで落ち着くのか？',cat:'症状・疾患',url:'https://www.youtube.com/watch?v=Wst98Nf3pZk'},
   {title:'【東洋医学の叡智「経絡」を解き明かす】NotebookLMで"見て理解できる経絡の入口"に挑戦！',cat:'東洋医学・理論',url:'https://www.youtube.com/watch?v=J_x5KYaFAyg'},
-  {title:'【体温が安定しない不調を克服！】自律神経に鍼治療ができること',cat:'症状・疾患',url:'https://www.youtube.com/watch?v=2QkMKtKX5_g'},
-  {title:'【お腹が鳴るのが怖い】過敏性腸症候群に悩むあなたへ届けたい実話',cat:'症状・疾患',url:'https://www.youtube.com/watch?v=kSzhfIgZNos'},
-  {title:'【警察官試験に合格できた！】突発性難聴　あきらめたら０％',cat:'症状・疾患',url:'https://www.youtube.com/watch?v=lk5cHN01f_E'},
+  {title:'【体温が安定しない不調を克服！】自律神経に鍼治療ができること',cat:'症状・疾患',url:'https://www.youtube.com/watch?v=2QkMKtKX5_g',featured:true},
+  {title:'【お腹が鳴るのが怖い】過敏性腸症候群に悩むあなたへ届けたい実話',cat:'症状・疾患',url:'https://www.youtube.com/watch?v=kSzhfIgZNos',featured:true},
+  {title:'【警察官試験に合格できた！】突発性難聴　あきらめたら０％',cat:'症状・疾患',url:'https://www.youtube.com/watch?v=lk5cHN01f_E',featured:true},
   {title:'【東洋医学の秘密（気血思想）】鍼灸師が徹底解説！',cat:'東洋医学・理論',url:'https://www.youtube.com/watch?v=Zr4uQ62fzmo'},
   {title:'【片麻痺に挑む】ストレスを和らげ、血流を良くする！',cat:'症状・疾患',url:'https://www.youtube.com/watch?v=9622hEruoWA'},
   {title:'【2025年】長引く咳の正体とは？注意すべき原因と対策を鍼灸師が解説！',cat:'症状・疾患',url:'https://www.youtube.com/watch?v=ckNed1OLuys'},
@@ -138,7 +142,7 @@ const LONG=[
   {title:'【小児鍼の安心ガイド】初めてのお子様も怖がらない！優しい鍼を解説',cat:'施術・治療紹介',url:'https://www.youtube.com/watch?v=Nkyq9u7IKS8'},
   {title:'【膀胱炎の鍼灸ケア】繰り返す症状の原因を解説',cat:'症状・疾患',url:'https://www.youtube.com/watch?v=TUWtO3NyuBA'},
   {title:'【腱鞘炎の痛みを鍼で改善】効果的な鍼灸アプローチと生体制御療法を解説！',cat:'症状・疾患',url:'https://www.youtube.com/watch?v=mAhUnvgXpmU'},
-  {title:'【3年半続いた顔面神経麻痺症状が鍼治療で改善】長期化した症状への効果的アプローチを解説！',cat:'症状・疾患',url:'https://www.youtube.com/watch?v=BGCdm3LGYjY'},
+  {title:'【3年半続いた顔面神経麻痺症状が鍼治療で改善】長期化した症状への効果的アプローチを解説！',cat:'症状・疾患',url:'https://www.youtube.com/watch?v=BGCdm3LGYjY',featured:true},
   {title:'【肘の動き】野球肘・テニス肘への鍼灸アプローチを解説！',cat:'症状・疾患',url:'https://www.youtube.com/watch?v=GBQw_df8A5U'},
   {title:'【捻挫の痛み】慢性化した捻挫への当院の取り組みを解説！',cat:'症状・疾患',url:'https://www.youtube.com/watch?v=8WUeq7WvaL0'},
   {title:'【めまい】目眩の種類と対処方法について解説！',cat:'症状・疾患',url:'https://www.youtube.com/watch?v=cFNIJLZKag8'},
@@ -167,13 +171,13 @@ const LONG=[
   {title:'【研究に基づく慢性疲労症候群】是非、お知らせしたいこと！',cat:'症状・疾患',url:'https://www.youtube.com/watch?v=KUdQB17w13M'},
   {title:'【線維筋痛症の症状は鍼（ハリ）で改善できます】研究により診断特異的圧痛点が経穴（ツボ）と一致していることが判明！',cat:'症状・疾患',url:'https://www.youtube.com/watch?v=Jv3RVWe9tyU'},
   {title:'【糖尿病にできること】鍼（ハリ）による血糖コントロールで通常生活が可能！',cat:'症状・疾患',url:'https://www.youtube.com/watch?v=b6phTmI7cJs'},
-  {title:'【経験からわかった鍼治療で三叉神経痛和らげる方法】劇的に効果のあった症例を紹介します！',cat:'症状・疾患',url:'https://www.youtube.com/watch?v=6gqVOL09PvI'},
+  {title:'【経験からわかった鍼治療で三叉神経痛和らげる方法】劇的に効果のあった症例を紹介します！',cat:'症状・疾患',url:'https://www.youtube.com/watch?v=6gqVOL09PvI',featured:true},
   {title:'【緑内障のツボ】緑内障の進行でお困りの方必見！',cat:'症状・疾患',url:'https://www.youtube.com/watch?v=HVwmy5UaJyE'},
   {title:'【帯状疱疹後神経痛の鍼（はり）による治し方】難治性の疾患に対し鍼治療にできることを解説！',cat:'症状・疾患',url:'https://www.youtube.com/watch?v=SYln-JrbnuY'},
   {title:'【花粉症に鍼灸ケアでできること】私が研究発表させて頂いた5年間にわたる鍼治療研究を紹介します！',cat:'症状・疾患',url:'https://www.youtube.com/watch?v=VLl1tnPuEoU'},
   {title:'【鍼で不眠症から安らぎの夜へ】研究に基づいた睡眠への導入を！必見ワンポイントアドバイス！',cat:'症状・疾患',url:'https://www.youtube.com/watch?v=2hl-4bfsptU'},
-  {title:'【経穴（ツボ）の正体】鍼治療の第一人者「黒野保三先生」が語る経穴（つぼ）に関する衝撃の真実！',cat:'ツボ・経穴',url:'https://www.youtube.com/watch?v=7OtYm3AIXno'},
-  {title:'【鍼（ハリ）治療の技術】こんなに差があったのか！客観的な計測でわかりました！',cat:'施術・治療紹介',url:'https://www.youtube.com/watch?v=wXittn1tENc'},
+  {title:'【経穴（ツボ）の正体】鍼治療の第一人者「黒野保三先生」が語る経穴（つぼ）に関する衝撃の真実！',cat:'ツボ・経穴',url:'https://www.youtube.com/watch?v=7OtYm3AIXno',featured:true},
+  {title:'【鍼（ハリ）治療の技術】こんなに差があったのか！客観的な計測でわかりました！',cat:'施術・治療紹介',url:'https://www.youtube.com/watch?v=wXittn1tENc',featured:true},
   {title:'【自律神経に鍼は関係あるの？】ストレスの正体！鍼治療の最新研究紹介！',cat:'施術・治療紹介',url:'https://www.youtube.com/watch?v=ZLTb849e1uE'},
   {title:'【鍼治療に必要な人間性】効果に差が出る一番大切な条件！',cat:'施術・治療紹介',url:'https://www.youtube.com/watch?v=jpqJn8blcbY'},
   {title:'【黒野式全身調整基本穴】自然治癒力を高めるために選択された最も重要な経穴（ツボ）は！',cat:'ツボ・経穴',url:'https://www.youtube.com/watch?v=8IwwD4Njcwk'},
@@ -194,8 +198,23 @@ const LONG=[
   {title:'【痛くない鍼治療の3つの秘密】鍼治療に興味はあるけど怖い人必見！',cat:'施術・治療紹介',url:'https://www.youtube.com/watch?v=voF7a7vTS7E'},
 ].map(v=>({...v,type:'ロング'}));
 
-// CSVから読み込んだ172本のショート動画（No.172の屋内パークは院内案内扱い）
+// 最新15本を冒頭に追加（2026/05/17 更新）
 const SHORT_RAW=[
+  ['本神篇とは何か？','https://youtube.com/shorts/Xl0c2T14QO0'],
+  ['三陽絡穴（さんようらくけつ）','https://youtube.com/shorts/ABJIwNfsE4k'],
+  ['【鍼はなぜ効くのか？】ファシアと自律神経から３分で解説！','https://youtube.com/shorts/ZW7vXKvuxvw'],
+  ['鍼治療の原点「九鍼十二原」を3分で解説','https://youtube.com/shorts/AevhxvqQb9c'],
+  ['【鍼治療が保険適用へ？】ニューヨーク州で起きた大きな変化！','https://youtube.com/shorts/y4xPCI2538Q'],
+  ['耳門穴（じもんけつ）','https://youtube.com/shorts/eRcW4FQ1hIE'],
+  ['朝起きた瞬間から首が重い','https://youtube.com/shorts/q08Fzvu05yw'],
+  ['鍼治療は世界でどれくらい研究されている？','https://youtube.com/shorts/uozK_xmTT2M'],
+  ['『陰陽応象大論』なぜ季節の変わり目に体調を崩すのか？','https://youtube.com/shorts/gLNwybVbJNo'],
+  ['大椎穴（だいついけつ）','https://youtube.com/shorts/oignN4iCaoI'],
+  ['夜になると不安になるのはなぜ？','https://youtube.com/shorts/TkPZcKOqTI0'],
+  ['血海穴（けっかいけつ）漫画','https://youtube.com/shorts/i-bc6OsHzc4'],
+  ['『上古天真論』なぜ人は老いるのか？','https://youtube.com/shorts/iw6gssrgCsU'],
+  ['多発性筋痛症','https://youtube.com/shorts/kAyqJk_OEaI'],
+  ['崑崙穴（こんろんけつ）','https://youtube.com/shorts/Kpvy-YlNz7Q'],
   ['"頭維穴"（ずいけつ）「頭の境を守る門！思考のリセットボタン」','https://www.youtube.com/shorts/j1r6n93B_1s'],
   ['【漫画でわかる難経七十五難】より深い治療法の考え方！','https://www.youtube.com/shorts/gxVwPIgDQAw'],
   ['傷は治ったのに痛い…その理由を脳と体の関係から解説','https://www.youtube.com/shorts/CmihpZC-WMU'],
@@ -392,6 +411,11 @@ function render(){
 
   const groups={};
   list.forEach(v=>{if(!groups[v.cat])groups[v.cat]=[];groups[v.cat].push(v);});
+  // Featured videos additionally appear in the おすすめ category
+  if(currentCat==='すべて'||currentCat===FEATURED_CAT){
+    const featured=list.filter(v=>v.featured);
+    if(featured.length){groups[FEATURED_CAT]=featured;}
+  }
 
   let html='';
   CAT_ORDER.forEach(cat=>{
