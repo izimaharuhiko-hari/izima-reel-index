@@ -317,6 +317,9 @@
 <script>
 const CATS = [
   { name: "症状・疾患", icon: "🩺", items: [
+    ["朝起きた瞬間から首が重い","起きた瞬間からつらい首のこりの原因とは？","https://youtube.com/shorts/q08Fzvu05yw"],
+    ["夜になると不安になるのはなぜ？","自律神経と「夜の不安」の関係","https://youtube.com/shorts/TkPZcKOqTI0"],
+    ["多発性筋痛症","高齢の方に多い首・肩・腰のこわばりと痛み","https://youtube.com/shorts/kAyqJk_OEaI"],
     ["メニエール病","内リンパ水腫によって平衡感覚・聴覚が障害される","https://www.instagram.com/reel/DD-r4Kzi8lu/"],
     ["眼精疲労","パソコン・スマホを使う時間が長くなっているため","https://www.instagram.com/reel/DD1FVptifxs/"],
     ["不眠症","恐怖の対象になっていく","https://www.instagram.com/reel/DDvUgnqCSSz/"],
@@ -399,6 +402,11 @@ const CATS = [
     ["バレット食道","","https://www.instagram.com/reel/DWTDwkrgpH2/"],
   ]},
   { name: "経穴（ツボ）", icon: "📍", items: [
+    ["三陽絡穴（さんようらくけつ）","３つの陽の経絡が絡み合うツボ","https://youtube.com/shorts/ABJIwNfsE4k"],
+    ["耳門穴（じもんけつ）","耳の前、耳への入口の門","https://youtube.com/shorts/eRcW4FQ1hIE"],
+    ["大椎穴（だいついけつ）","全身の陽気が集まる要穴","https://youtube.com/shorts/oignN4iCaoI"],
+    ["血海穴（けっかいけつ）","血の海を整える名穴（漫画で解説）","https://youtube.com/shorts/i-bc6OsHzc4"],
+    ["崑崙穴（こんろんけつ）","腰背部や頭部の痛みに用いられる名穴","https://youtube.com/shorts/Kpvy-YlNz7Q"],
     ["頭維穴","頭の境を守る門！思考のリセットボタン","https://www.instagram.com/reel/DWND02vAj89/"],
     ["太谿穴","生命のエネルギーが湧き出る源泉！","https://www.instagram.com/reel/DVxwNoNggoM/"],
     ["関元穴","生命力の根っこに関わる最重要ポイント！","https://www.instagram.com/reel/DVQDLiagjds/"],
@@ -445,6 +453,10 @@ const CATS = [
     ["太衝穴","たいしょうけつ","https://www.instagram.com/reel/DWfEAgPAtgw/"],
   ]},
   { name: "東洋医学・鍼灸理論", icon: "📜", items: [
+    ["本神篇とは何か？","『霊枢』本神篇 — 神を主る心の働きを説く","https://youtube.com/shorts/Xl0c2T14QO0"],
+    ["鍼治療の原点「九鍼十二原」","九種類の鍼と十二原穴を3分で解説","https://youtube.com/shorts/AevhxvqQb9c"],
+    ["『陰陽応象大論』なぜ季節の変わり目に体調を崩すのか？","古典から読み解く季節と体調の関係","https://youtube.com/shorts/gLNwybVbJNo"],
+    ["『上古天真論』なぜ人は老いるのか？","黄帝内経が説く老化と養生","https://youtube.com/shorts/iw6gssrgCsU"],
     ["ペインマトリックス","不安・緊張・ストレスと神経の遷延化","https://www.instagram.com/reel/DV7p26Qgr5O/"],
     ["難経七十五難","イライラする人ほど虚している？","https://www.instagram.com/reel/DWAN6x_grqi/"],
     ["鍼が脳に働く話","痛みによる感情障害における脳の働きを落ち着かせる仕組み","https://www.instagram.com/reel/DVkBggqgkty/"],
@@ -493,6 +505,9 @@ const CATS = [
     ["心と体を守る方法","現代社会の最大の問題点！","https://www.instagram.com/reel/DDYz29ACZ4X/"],
   ]},
   { name: "現代医学・研究・報告", icon: "🔬", items: [
+    ["【鍼はなぜ効くのか？】ファシアと自律神経から","３分でわかる現代的なメカニズム解説","https://youtube.com/shorts/ZW7vXKvuxvw"],
+    ["鍼治療が保険適用へ？","ニューヨーク州で起きた大きな変化","https://youtube.com/shorts/y4xPCI2538Q"],
+    ["鍼治療は世界でどれくらい研究されている？","世界の鍼研究の現状","https://youtube.com/shorts/uozK_xmTT2M"],
     ["鍼治療の技術は一朝一夕には育たない","（このグラフは）","https://www.instagram.com/reel/DD8HGIzCn-F/"],
     ["鍼治療の技術訓練方法","痛みを出すことなく","https://www.instagram.com/reel/DD24mRDiXFv/"],
     ["こわくない鍼治療","あきらめないでこの効果的な治療法をご検討ください","https://www.instagram.com/reel/DFL66CnCGEO/"],
@@ -550,7 +565,7 @@ function render() {
       <div class="grid">
         ${s.items.map(([title, desc, url]) => `
           <div class="card${url ? ' card-link' : ''}" ${url ? `onclick="window.open('${url}','_blank')"` : ''}>
-            ${url ? '<div class="card-ig-badge">▶ Instagram</div>' : ''}
+            ${url ? (url.includes('youtube')||url.includes('youtu.be') ? '<div class="card-ig-badge" style="color:#ff0000">▶ YouTube</div>' : '<div class="card-ig-badge">▶ Instagram</div>') : ''}
             <div class="card-title">${highlight(title, query)}</div>
             ${desc ? `<div class="card-desc">${highlight(desc, query)}</div>` : ''}
           </div>
