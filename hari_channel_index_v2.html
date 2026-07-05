@@ -44,8 +44,6 @@ body{font-family:'Noto Sans JP',sans-serif;background:var(--cream2);color:var(--
 .card-platform{display:flex;align-items:center;gap:5px;font-size:10px;color:var(--text-muted);margin-bottom:5px;}
 .yt-icon{width:14px;height:10px;background:#FF0000;border-radius:2px;position:relative;display:inline-block;flex-shrink:0;}
 .yt-icon::after{content:'';position:absolute;left:50%;top:50%;transform:translate(-30%,-50%);border-left:5px solid white;border-top:3px solid transparent;border-bottom:3px solid transparent;}
-.ig-icon{width:14px;height:14px;border-radius:3px;background:linear-gradient(135deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888);display:inline-block;flex-shrink:0;}
-.ig-badge{display:inline-flex;align-items:center;background:linear-gradient(135deg,#e6683c,#cc2366);color:#fff;font-size:9px;font-weight:700;padding:1px 6px;border-radius:3px;letter-spacing:.05em;margin-left:3px;}
 .short-badge{display:inline-flex;align-items:center;background:#FF0000;color:#fff;font-size:9px;font-weight:700;padding:1px 6px;border-radius:3px;letter-spacing:.05em;}
 .card-title{font-size:12px;font-weight:700;color:var(--text);line-height:1.5;}
 .empty{text-align:center;padding:40px 0;color:var(--text-muted);font-size:13px;}
@@ -92,11 +90,11 @@ const CAT_ORDER=[FEATURED_CAT,'症状・疾患','ツボ・経穴','東洋医学�
 
 function c(title){
   const t=title;
-  if(/穴|けつ|ごうこく|たいけい|かんげん|れっけつ|しょうかい|しんもん|てさんり|かくそん|ようはく|ちそう|うんもん|しょうざん|いんりょうせん|ないかん|てんとつ|げかん|しいん|ずいけつ|だんちゅう|かんこつ|ぎょさい|ひゃくえ|けんせい|きかい|きもん|てんすう|じんゆ|ちゅうかん|こうこう|だいじょ|ふうち|てんちゅう|はいゆ|けついんゆ|百会|合谷|足三里|三陰交|太衝|内関|天突|曲池|翳風|膻中|完骨|魚際|肺兪|肩井|気海|期門|天枢|腎兪|中脘|膏肓|大杼|風池|天柱|厥陰兪|鳩尾|曲池|三陰交|翳風|膻中/.test(t)) return 'ツボ・経穴';
-  if(/難経|経絡|東洋医学|気血|陰陽|養生訓|医心方|黄帝内経|生体制御|穴名考|江戸|杉山和一|鍼灸医学の歴史|361経穴|黒野式|日本最古|中国最古|黄帝八十一難経|脈診|本神篇|九鍼十二原|上古天真論|陰陽応象大論/.test(t)) return '東洋医学・理論';
+  if(/穴|けつ|ごうこく|たいけい|かんげん|れっけつ|しょうかい|しんもん|てさんり|かくそん|ようはく|ちそう|うんもん|しょうざん|いんりょうせん|ないかん|てんとつ|げかん|しいん|ずいけつ|だんちゅう|かんこつ|ぎょさい|ひゃくえ|けんせい|きかい|きもん|てんすう|じんゆ|ちゅうかん|こうこう|だいじょ|ふうち|てんちゅう|はいゆ|けついんゆ|百会|合谷|足三里|三陰交|太衝|内関|天突|曲池|翳風|膻中|完骨|魚際|肺兪|肩井|気海|期門|天枢|腎兪|中脘|膏肓|大杼|風池|天柱|厥陰兪|鳩尾|三陰交|翳風|膻中|ふくと|たいえん|れんせん|ちゅうふ|めいもん|ろうきゅう|げいこう|しゃくたく|たいしょう|さんようらく|じもん|だいつい|けっかい|こんろん/.test(t)) return 'ツボ・経穴';
+  if(/難経|経絡|東洋医学|気血|陰陽|養生訓|医心方|黄帝内経|生体制御|穴名考|江戸|杉山和一|鍼灸医学の歴史|361経穴|黒野式|日本最古|中国最古|黄帝八十一難経|脈診|本神篇|九鍼十二原|上古天真論|陰陽応象大論|生気通天論|四気調神大論|邪客篇|経脈篇|官鍼篇|霊枢|素問/.test(t)) return '東洋医学・理論';
   if(/逆子.*セルフ|養生|セルフケア/.test(t)) return 'セルフケア・養生';
   if(/症例|改善.*過程|治療方法.*紹介|施術方法|訓練方法|生体制御療法|技術訓練|無痛|刺さない|人間性|研究.*紹介|鍼で炎症|足三里.*研究|解剖学的|必読書|柳原法|発症後.*注意|鍼灸.*真髄|世界で話題|今世界|治し方|鍼治療.*できること|鍼灸院で治療する|ファシア|保険適用|世界.*研究|AIと/.test(t)) return '施術・治療紹介';
-  if(/アクセス|受付時間|治療費|初めての方|相談|ほっとする空間|よく頂くご質問|屋内パーク/.test(t)) return '院内案内';
+  if(/アクセス|受付時間|治療費|初めての方|相談|ほっとする空間|よく頂くご質問/.test(t)) return '院内案内';
   return '症状・疾患';
 }
 
@@ -198,7 +196,6 @@ const LONG=[
   {title:'【痛くない鍼治療の3つの秘密】鍼治療に興味はあるけど怖い人必見！',cat:'施術・治療紹介',url:'https://www.youtube.com/watch?v=voF7a7vTS7E'},
 ].map(v=>({...v,type:'ロング'}));
 
-// 最新15本を冒頭に追加（2026/05/17 更新）
 const SHORT_RAW=[
   ['本神篇とは何か？','https://youtube.com/shorts/Xl0c2T14QO0'],
   ['三陽絡穴（さんようらくけつ）','https://youtube.com/shorts/ABJIwNfsE4k'],
@@ -393,6 +390,29 @@ const SHORT_RAW=[
   ['"太衝穴"（たいしょうけつ）','https://youtube.com/shorts/6qFfy7PbWzY'],
   ['「鍼って効くの？」','https://youtube.com/shorts/oHTrhDa-REI'],
   ['バレット食道','https://www.youtube.com/shorts/j1r6n93B_1s'],
+  // ── 2026/07 追加 20本 ──
+  ['"伏兎穴"（ふくとけつ）太ももの名穴「伏兎」の由来が面白い！','https://www.youtube.com/shorts/3H7KpW5Kepo'],
+  ['"太淵穴"（たいえんけつ）なぜ手首で脈を診るのか？','https://www.youtube.com/shorts/AU6VHn2R2do'],
+  ['夜中に目が覚める原因とは？中途覚醒が起こる3つの理由','https://www.youtube.com/shorts/HaNuZeb0Coc'],
+  ['"廉泉穴"（れんせんけつ）声と飲み込みを助けるツボ！','https://www.youtube.com/shorts/GaWM62OOdk4'],
+  ['〜自然のリズムと調和し「陽気」を守る〜【黄帝内経・素問】第3篇「生気通天論」','https://www.youtube.com/shorts/Y4HptlqiMPc'],
+  ['【夜、足が冷えて眠れない…】靴下を履く前に知っておくべき真実','https://www.youtube.com/shorts/hwuvOpkAM5s'],
+  ['"中府穴"（ちゅうふけつ）咳、痰、胸のつかえに効くツボ','https://www.youtube.com/shorts/9sv9KRQ_LBU'],
+  ['2000年前のバイブル「四気調神大論篇」','https://www.youtube.com/shorts/Y_aK1d67G48'],
+  ['【すねの内側が痛い】シンスプリントの本当の原因','https://www.youtube.com/shorts/XOO0abOpyZk'],
+  ['【驚きの研究】アメリカの救急外来で鍼治療が導入されている理由','https://www.youtube.com/shorts/5IDU52B6fL4'],
+  ['"命門穴"（めいもんけつ）なぜ生命の出入り口と呼ばれるのか','https://www.youtube.com/shorts/tZw3RuhP43g'],
+  ['WHOが注目する伝統医学とは？','https://www.youtube.com/shorts/J8srgYKQYKE'],
+  ['なぜ眠れなくなるのか？『黄帝内経・邪客篇』','https://www.youtube.com/shorts/D8evKU34pX0'],
+  ['アルツハイマー病に鍼が効く？米UCアーバイン最新研究','https://www.youtube.com/shorts/yPWKS7VhTrA'],
+  ['"労宮穴"（ろうきゅうけつ）手のひらの心を整えるツボ','https://www.youtube.com/shorts/vmnoBSULH5g'],
+  ['黄帝内経・霊枢『経脈篇』経絡理論の核心','https://www.youtube.com/shorts/nQx9VWlChMU'],
+  ['「痛みを覚える脳」の正体｜慢性痛はなぜ治りにくいのか','https://www.youtube.com/shorts/Zsl1JprV79M'],
+  ['"迎香穴"（げいこうけつ）鼻づまりに使われ続けた名穴','https://www.youtube.com/shorts/dstApa-ZfBA'],
+  ['2000年前に存在した"鍼の戦略書"【黄帝内経】「官鍼篇」','https://www.youtube.com/shorts/W19piFKOuBg'],
+  ['なぜ古代人は"耳を巡る経絡"を知っていたのか？','https://www.youtube.com/shorts/TsibwAHr-v8'],
+  // ── 2026/07 追加 1本 ──
+  ['【2026年最新研究】がん関連倦怠感に鍼治療は効くのか？28研究を徹底解説','https://youtube.com/shorts/GJ-826mFgEU'],
 ].map(([title,url])=>({title,url,cat:c(title),type:'ショート'}));
 
 const ALL=[...LONG,...SHORT_RAW];
@@ -411,7 +431,6 @@ function render(){
 
   const groups={};
   list.forEach(v=>{if(!groups[v.cat])groups[v.cat]=[];groups[v.cat].push(v);});
-  // Featured videos additionally appear in the おすすめ category
   if(currentCat==='すべて'||currentCat===FEATURED_CAT){
     const featured=list.filter(v=>v.featured);
     if(featured.length){groups[FEATURED_CAT]=featured;}
