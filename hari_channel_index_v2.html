@@ -88,28 +88,18 @@ const CAT_COLORS={[FEATURED_CAT]:'#C9A84C','症状・疾患':'#8B2020','ツボ�
 const CAT_ICONS={[FEATURED_CAT]:'⭐','症状・疾患':'🩺','ツボ・経穴':'☯','東洋医学・理論':'📖','セルフケア・養生':'🌿','施術・治療紹介':'💉','院内案内':'🏥'};
 const CAT_ORDER=[FEATURED_CAT,'症状・疾患','ツボ・経穴','東洋医学・理論','セルフケア・養生','施術・治療紹介','院内案内'];
 
-function c(title){
-  const t=title;
-  if(/穴|けつ|ごうこく|たいけい|かんげん|れっけつ|しょうかい|しんもん|てさんり|かくそん|ようはく|ちそう|うんもん|しょうざん|いんりょうせん|ないかん|てんとつ|げかん|しいん|ずいけつ|だんちゅう|かんこつ|ぎょさい|ひゃくえ|けんせい|きかい|きもん|てんすう|じんゆ|ちゅうかん|こうこう|だいじょ|ふうち|てんちゅう|はいゆ|けついんゆ|百会|合谷|足三里|三陰交|太衝|内関|天突|曲池|翳風|膻中|完骨|魚際|肺兪|肩井|気海|期門|天枢|腎兪|中脘|膏肓|大杼|風池|天柱|厥陰兪|鳩尾|三陰交|翳風|膻中|ふくと|たいえん|れんせん|ちゅうふ|めいもん|ろうきゅう|げいこう|しゃくたく|たいしょう|さんようらく|じもん|だいつい|けっかい|こんろん/.test(t)) return 'ツボ・経穴';
-  if(/難経|経絡|東洋医学|気血|陰陽|養生訓|医心方|黄帝内経|生体制御|穴名考|江戸|杉山和一|鍼灸医学の歴史|361経穴|黒野式|日本最古|中国最古|黄帝八十一難経|脈診|本神篇|九鍼十二原|上古天真論|陰陽応象大論|生気通天論|四気調神大論|邪客篇|経脈篇|官鍼篇|霊枢|素問/.test(t)) return '東洋医学・理論';
-  if(/逆子.*セルフ|養生|セルフケア/.test(t)) return 'セルフケア・養生';
-  if(/症例|改善.*過程|治療方法.*紹介|施術方法|訓練方法|生体制御療法|技術訓練|無痛|刺さない|人間性|研究.*紹介|鍼で炎症|足三里.*研究|解剖学的|必読書|柳原法|発症後.*注意|鍼灸.*真髄|世界で話題|今世界|治し方|鍼治療.*できること|鍼灸院で治療する|ファシア|保険適用|世界.*研究|AIと/.test(t)) return '施術・治療紹介';
-  if(/アクセス|受付時間|治療費|初めての方|相談|ほっとする空間|よく頂くご質問/.test(t)) return '院内案内';
-  return '症状・疾患';
-}
-
 const LONG=[
   {title:'なぜ人は老いるのか？『上古天真論』に学ぶ養生の知恵！',cat:'東洋医学・理論',url:'https://youtu.be/n6LrkqCpKIY'},
   {title:'【鍼はなぜ効くのか？】ファシアと自律神経からわかりやすく解説！',cat:'施術・治療紹介',url:'https://youtu.be/Cc_hyms2pGo',featured:true},
-  {title:'「鍼って効くの？」に65歳の鍼灸師が本気で答えます',cat:'施術・治療紹介',url:'https://www.youtube.com/watch?v=ztTTCCWhzxo',featured:true},
+  {title:'「鍼って効くの？」に65歳の鍼灸師が本気で答えます',cat:'症状・疾患',url:'https://www.youtube.com/watch?v=ztTTCCWhzxo',featured:true},
   {title:'【膀胱炎】菌がいないのに痛いのはなぜ？薬が効かない違和感の原因',cat:'症状・疾患',url:'https://www.youtube.com/watch?v=YJn2B17T2qI'},
   {title:'「なぜ私だけ花粉症？」止まらない鼻水…原因は「花粉の量」だけではありません',cat:'症状・疾患',url:'https://www.youtube.com/watch?v=FApT3JYvRts'},
-  {title:'円形脱毛症と向き合った141日間の記録。鍼灸による生体制御の可能性',cat:'症状・疾患',url:'https://www.youtube.com/watch?v=HKRqo49bGIE'},
+  {title:'円形脱毛症と向き合った141日間の記録。鍼灸による生体制御の可能性',cat:'東洋医学・理論',url:'https://www.youtube.com/watch?v=HKRqo49bGIE'},
   {title:'【自律神経失調症】「どこも悪くない」と医師に言われたのに体が辛い人へ',cat:'症状・疾患',url:'https://www.youtube.com/watch?v=qKHKiUECcMQ'},
-  {title:'【驚きの症例報告！】なぜ、原因不明のめまいが劇的に改善したのか？',cat:'症状・疾患',url:'https://www.youtube.com/watch?v=JYM_cnoirHo'},
+  {title:'【驚きの症例報告！】なぜ、原因不明のめまいが劇的に改善したのか？',cat:'施術・治療紹介',url:'https://www.youtube.com/watch?v=JYM_cnoirHo'},
   {title:'【HSCと小児鍼！】なぜ肌に触れるだけで落ち着くのか？',cat:'症状・疾患',url:'https://www.youtube.com/watch?v=Wst98Nf3pZk'},
   {title:'【東洋医学の叡智「経絡」を解き明かす】NotebookLMで"見て理解できる経絡の入口"に挑戦！',cat:'東洋医学・理論',url:'https://www.youtube.com/watch?v=J_x5KYaFAyg'},
-  {title:'【体温が安定しない不調を克服！】自律神経に鍼治療ができること',cat:'症状・疾患',url:'https://www.youtube.com/watch?v=2QkMKtKX5_g',featured:true},
+  {title:'【体温が安定しない不調を克服！】自律神経に鍼治療ができること',cat:'施術・治療紹介',url:'https://www.youtube.com/watch?v=2QkMKtKX5_g',featured:true},
   {title:'【お腹が鳴るのが怖い】過敏性腸症候群に悩むあなたへ届けたい実話',cat:'症状・疾患',url:'https://www.youtube.com/watch?v=kSzhfIgZNos',featured:true},
   {title:'【警察官試験に合格できた！】突発性難聴　あきらめたら０％',cat:'症状・疾患',url:'https://www.youtube.com/watch?v=lk5cHN01f_E',featured:true},
   {title:'【東洋医学の秘密（気血思想）】鍼灸師が徹底解説！',cat:'東洋医学・理論',url:'https://www.youtube.com/watch?v=Zr4uQ62fzmo'},
@@ -126,25 +116,25 @@ const LONG=[
   {title:'【手足のふるえ・こわばり…それ、もしかしてパーキンソン病？】鍼灸院からの情報提供！',cat:'症状・疾患',url:'https://www.youtube.com/watch?v=0JIYGWLDLnc'},
   {title:'【坐骨神経痛でお悩みの方へ】鍼灸院からの情報提供！',cat:'症状・疾患',url:'https://www.youtube.com/watch?v=lzHGMsWOR58'},
   {title:'【胸やけ、もう我慢しない】逆流性食道炎を整える！原因→ツボ→施術まで解説',cat:'症状・疾患',url:'https://www.youtube.com/watch?v=iB_jCXRuTDI'},
-  {title:'【ベル麻痺（顔面神経麻痺）の鍼治療（症例紹介）】改善していく過程を詳しく紹介！',cat:'症状・疾患',url:'https://www.youtube.com/watch?v=jBtfyWfyp9U'},
+  {title:'【ベル麻痺（顔面神経麻痺）の鍼治療（症例紹介）】改善していく過程を詳しく紹介！',cat:'施術・治療紹介',url:'https://www.youtube.com/watch?v=jBtfyWfyp9U'},
   {title:'【肩こりに光が差す】肩こりの現状について解説！',cat:'症状・疾患',url:'https://www.youtube.com/watch?v=FpF4SvhMdrs'},
-  {title:'【絶対みて！】問診から施術まで全力で解説しました',cat:'施術・治療紹介',url:'https://www.youtube.com/watch?v=EcBv4jra4RQ'},
+  {title:'【絶対みて！】問診から施術まで全力で解説しました',cat:'症状・疾患',url:'https://www.youtube.com/watch?v=EcBv4jra4RQ'},
   {title:'【ほっとする空間】治療室の設備をご覧ください！　井島鍼灸院',cat:'院内案内',url:'https://www.youtube.com/watch?v=qhe87n__YoU'},
   {title:'【口内炎の総まとめ】さまざまな口内炎について鍼灸師が解説！',cat:'症状・疾患',url:'https://www.youtube.com/watch?v=b5U9LuWtetc'},
   {title:'【メニエール病】再発するめまい・耳鳴りへの当院の取り組みを解説！',cat:'症状・疾患',url:'https://www.youtube.com/watch?v=gMrCwVkt0PA'},
-  {title:'【顔面神経麻痺になったらできること！】発症後一番大切な注意点をお伝えします！',cat:'症状・疾患',url:'https://www.youtube.com/watch?v=G3VAtCXdoI4'},
+  {title:'【顔面神経麻痺になったらできること！】発症後一番大切な注意点をお伝えします！',cat:'施術・治療紹介',url:'https://www.youtube.com/watch?v=G3VAtCXdoI4'},
   {title:'（8）「サイエンスとしての鍼灸医学　後編」黒野保三先生による東洋医学・鍼治療の教え',cat:'東洋医学・理論',url:'https://www.youtube.com/watch?v=X9z6vVugkwI'},
   {title:'（7）「サイエンスとしての鍼灸医学　前編」黒野保三先生による東洋医学・鍼治療の教え',cat:'東洋医学・理論',url:'https://www.youtube.com/watch?v=_a2ShMlxp40'},
-  {title:'【ラムゼイハント症候群（顔面神経麻痺）の鍼治療（症例紹介）】顔面筋マッサージの方法を詳しく解説！',cat:'症状・疾患',url:'https://www.youtube.com/watch?v=yQL6ZfOU79g'},
-  {title:'【顔面神経麻痺に対する鍼治療効果の報告】第35回公益社団法人 生体制御学会学術集会の一般口演！',cat:'施術・治療紹介',url:'https://www.youtube.com/watch?v=Fps_OVKtQng'},
-  {title:'【小児鍼の安心ガイド】初めてのお子様も怖がらない！優しい鍼を解説',cat:'施術・治療紹介',url:'https://www.youtube.com/watch?v=Nkyq9u7IKS8'},
+  {title:'【ラムゼイハント症候群（顔面神経麻痺）の鍼治療（症例紹介）】顔面筋マッサージの方法を詳しく解説！',cat:'施術・治療紹介',url:'https://www.youtube.com/watch?v=yQL6ZfOU79g'},
+  {title:'【顔面神経麻痺に対する鍼治療効果の報告】第35回公益社団法人 生体制御学会学術集会の一般口演！',cat:'東洋医学・理論',url:'https://www.youtube.com/watch?v=Fps_OVKtQng'},
+  {title:'【小児鍼の安心ガイド】初めてのお子様も怖がらない！優しい鍼を解説',cat:'症状・疾患',url:'https://www.youtube.com/watch?v=Nkyq9u7IKS8'},
   {title:'【膀胱炎の鍼灸ケア】繰り返す症状の原因を解説',cat:'症状・疾患',url:'https://www.youtube.com/watch?v=TUWtO3NyuBA'},
-  {title:'【腱鞘炎の痛みを鍼で改善】効果的な鍼灸アプローチと生体制御療法を解説！',cat:'症状・疾患',url:'https://www.youtube.com/watch?v=mAhUnvgXpmU'},
+  {title:'【腱鞘炎の痛みを鍼で改善】効果的な鍼灸アプローチと生体制御療法を解説！',cat:'東洋医学・理論',url:'https://www.youtube.com/watch?v=mAhUnvgXpmU'},
   {title:'【3年半続いた顔面神経麻痺症状が鍼治療で改善】長期化した症状への効果的アプローチを解説！',cat:'症状・疾患',url:'https://www.youtube.com/watch?v=BGCdm3LGYjY',featured:true},
   {title:'【肘の動き】野球肘・テニス肘への鍼灸アプローチを解説！',cat:'症状・疾患',url:'https://www.youtube.com/watch?v=GBQw_df8A5U'},
   {title:'【捻挫の痛み】慢性化した捻挫への当院の取り組みを解説！',cat:'症状・疾患',url:'https://www.youtube.com/watch?v=8WUeq7WvaL0'},
   {title:'【めまい】目眩の種類と対処方法について解説！',cat:'症状・疾患',url:'https://www.youtube.com/watch?v=cFNIJLZKag8'},
-  {title:'【かぜ症候群に知っておきたい鍼灸ケア】かぜ症候群の予防に対する鍼治療の研究を紹介！',cat:'症状・疾患',url:'https://www.youtube.com/watch?v=xxta1CLLW0Y'},
+  {title:'【かぜ症候群に知っておきたい鍼灸ケア】かぜ症候群の予防に対する鍼治療の研究を紹介！',cat:'施術・治療紹介',url:'https://www.youtube.com/watch?v=xxta1CLLW0Y'},
   {title:'【更年期障害に鍼の実力】ホルモンバランスの乱れに向けたアプローチを解説！',cat:'症状・疾患',url:'https://www.youtube.com/watch?v=sEe1XAuzfVw'},
   {title:'【鍼の可能性】心的外傷後ストレス障害に向けた鍼灸アプローチを解説！',cat:'症状・疾患',url:'https://www.youtube.com/watch?v=fXSkjHqoEmc'},
   {title:'【寝違いを克服！】首の痛みを早く取り除く鍼',cat:'症状・疾患',url:'https://www.youtube.com/watch?v=zwAAtt4AOHA'},
@@ -157,43 +147,44 @@ const LONG=[
   {title:'【顎関節症 に鍼でアプローチ】原因と鍼による対処方法について解説！',cat:'症状・疾患',url:'https://www.youtube.com/watch?v=dUIOYQekWOk'},
   {title:'【円形脱毛症を鍼でケア】原因と対処方法について解説！',cat:'症状・疾患',url:'https://www.youtube.com/watch?v=2NtqxmbpMDc'},
   {title:'【受付時間のご案内】　井島鍼灸院',cat:'院内案内',url:'https://www.youtube.com/watch?v=n6cXzVczrt4'},
-  {title:'【足がつる悩みを和らげるヒント】鍼治療方法や使用するツボ（経穴）を紹介！',cat:'症状・疾患',url:'https://www.youtube.com/watch?v=lWJeiBHAX48'},
+  {title:'【足がつる悩みを和らげるヒント】鍼治療方法や使用するツボ（経穴）を紹介！',cat:'ツボ・経穴',url:'https://www.youtube.com/watch?v=lWJeiBHAX48'},
   {title:'【眼精疲労の鍼（はり）】目の疲れに対しできること！',cat:'症状・疾患',url:'https://www.youtube.com/watch?v=w4kYeFQb-gE'},
   {title:'【「緊張するとお腹が…」それ、過敏性腸症候群かも？】お腹の不調、ずっと我慢していませんか？！',cat:'症状・疾患',url:'https://www.youtube.com/watch?v=hK1tby39gf8'},
   {title:'【片頭痛・緊張型頭痛に悩む方へ】岐阜市・井島鍼灸院の鍼灸サポート！',cat:'症状・疾患',url:'https://www.youtube.com/watch?v=Hhjsmwbtx0o'},
   {title:'【妊娠中の逆子ケア】岐阜市井島鍼灸院が伝えるお灸とセルフケア！',cat:'セルフケア・養生',url:'https://www.youtube.com/watch?v=yGAPY_K31u0'},
-  {title:'【世界中で注目、うつ病に対する鍼（ハリ）！】実際の経穴（ツボ）の位置、鍼治療の様子をご覧ください！',cat:'症状・疾患',url:'https://www.youtube.com/watch?v=11tO-Ws46mI'},
+  {title:'【世界中で注目、うつ病に対する鍼（ハリ）！】実際の経穴（ツボ）の位置、鍼治療の様子をご覧ください！',cat:'ツボ・経穴',url:'https://www.youtube.com/watch?v=11tO-Ws46mI'},
   {title:'【ぎっくり腰や慢性的な腰痛の予防に】腰痛でお困りの方に対する井島鍼灸院の取り組み！',cat:'症状・疾患',url:'https://www.youtube.com/watch?v=XTIjJlscWwY'},
   {title:'【不妊症に鍼でのアプローチをおすすめする理由】うまくいかない本当の原因！対処法は有ります！',cat:'症状・疾患',url:'https://www.youtube.com/watch?v=9DBAz9FM6Ho'},
   {title:'【むち打ち症からの違和感】独特の経過をたどるむち打ち症に向き合う、鍼灸的な視点！',cat:'症状・疾患',url:'https://www.youtube.com/watch?v=KLRsgy_7Li8'},
   {title:'【研究に基づく慢性疲労症候群】是非、お知らせしたいこと！',cat:'症状・疾患',url:'https://www.youtube.com/watch?v=KUdQB17w13M'},
-  {title:'【線維筋痛症の症状は鍼（ハリ）で改善できます】研究により診断特異的圧痛点が経穴（ツボ）と一致していることが判明！',cat:'症状・疾患',url:'https://www.youtube.com/watch?v=Jv3RVWe9tyU'},
+  {title:'【線維筋痛症の症状は鍼（ハリ）で改善できます】研究により診断特異的圧痛点が経穴（ツボ）と一致していることが判明！',cat:'ツボ・経穴',url:'https://www.youtube.com/watch?v=Jv3RVWe9tyU'},
   {title:'【糖尿病にできること】鍼（ハリ）による血糖コントロールで通常生活が可能！',cat:'症状・疾患',url:'https://www.youtube.com/watch?v=b6phTmI7cJs'},
-  {title:'【経験からわかった鍼治療で三叉神経痛和らげる方法】劇的に効果のあった症例を紹介します！',cat:'症状・疾患',url:'https://www.youtube.com/watch?v=6gqVOL09PvI',featured:true},
+  {title:'【経験からわかった鍼治療で三叉神経痛和らげる方法】劇的に効果のあった症例を紹介します！',cat:'施術・治療紹介',url:'https://www.youtube.com/watch?v=6gqVOL09PvI',featured:true},
   {title:'【緑内障のツボ】緑内障の進行でお困りの方必見！',cat:'症状・疾患',url:'https://www.youtube.com/watch?v=HVwmy5UaJyE'},
-  {title:'【帯状疱疹後神経痛の鍼（はり）による治し方】難治性の疾患に対し鍼治療にできることを解説！',cat:'症状・疾患',url:'https://www.youtube.com/watch?v=SYln-JrbnuY'},
-  {title:'【花粉症に鍼灸ケアでできること】私が研究発表させて頂いた5年間にわたる鍼治療研究を紹介します！',cat:'症状・疾患',url:'https://www.youtube.com/watch?v=VLl1tnPuEoU'},
+  {title:'【帯状疱疹後神経痛の鍼（はり）による治し方】難治性の疾患に対し鍼治療にできることを解説！',cat:'施術・治療紹介',url:'https://www.youtube.com/watch?v=SYln-JrbnuY'},
+  {title:'【花粉症に鍼灸ケアでできること】私が研究発表させて頂いた5年間にわたる鍼治療研究を紹介します！',cat:'施術・治療紹介',url:'https://www.youtube.com/watch?v=VLl1tnPuEoU'},
   {title:'【鍼で不眠症から安らぎの夜へ】研究に基づいた睡眠への導入を！必見ワンポイントアドバイス！',cat:'症状・疾患',url:'https://www.youtube.com/watch?v=2hl-4bfsptU'},
   {title:'【経穴（ツボ）の正体】鍼治療の第一人者「黒野保三先生」が語る経穴（つぼ）に関する衝撃の真実！',cat:'ツボ・経穴',url:'https://www.youtube.com/watch?v=7OtYm3AIXno',featured:true},
-  {title:'【鍼（ハリ）治療の技術】こんなに差があったのか！客観的な計測でわかりました！',cat:'施術・治療紹介',url:'https://www.youtube.com/watch?v=wXittn1tENc',featured:true},
+  {title:'【鍼（ハリ）治療の技術】こんなに差があったのか！客観的な計測でわかりました！',cat:'症状・疾患',url:'https://www.youtube.com/watch?v=wXittn1tENc',featured:true},
   {title:'【自律神経に鍼は関係あるの？】ストレスの正体！鍼治療の最新研究紹介！',cat:'施術・治療紹介',url:'https://www.youtube.com/watch?v=ZLTb849e1uE'},
   {title:'【鍼治療に必要な人間性】効果に差が出る一番大切な条件！',cat:'施術・治療紹介',url:'https://www.youtube.com/watch?v=jpqJn8blcbY'},
   {title:'【黒野式全身調整基本穴】自然治癒力を高めるために選択された最も重要な経穴（ツボ）は！',cat:'ツボ・経穴',url:'https://www.youtube.com/watch?v=8IwwD4Njcwk'},
   {title:'【最近、来院数が激増！！】どうしても伝えたいことがあります！',cat:'症状・疾患',url:'https://www.youtube.com/watch?v=2sVLzgvmruM'},
   {title:'【治療費のご案内】　井島鍼灸院',cat:'院内案内',url:'https://www.youtube.com/watch?v=1Ji4aOyn5pU'},
   {title:'【鍼治療の技術訓練方法】効果的な鍼治療を無痛にするために！',cat:'施術・治療紹介',url:'https://www.youtube.com/watch?v=vS4Br_dJm_M'},
-  {title:'【顔面神経麻痺に対する鍼治療効果】公益社団法人生体制御学会の学術集会で報告！',cat:'施術・治療紹介',url:'https://www.youtube.com/watch?v=DbTaQWuZ5lc'},
+  {title:'【顔面神経麻痺に対する鍼治療効果】公益社団法人生体制御学会の学術集会で報告！',cat:'東洋医学・理論',url:'https://www.youtube.com/watch?v=DbTaQWuZ5lc'},
   {title:'（6）「鍼灸に関する講演活動」黒野保三先生による東洋医学・鍼治療の教え',cat:'東洋医学・理論',url:'https://www.youtube.com/watch?v=Nkw5BXGuxA4'},
-  {title:'（5）「筋膜上圧刺激とは」効果的な鍼治療の方法',cat:'施術・治療紹介',url:'https://www.youtube.com/watch?v=wsdiRbzDiXc'},
+  {title:'（5）「筋膜上圧刺激とは」効果的な鍼治療の方法',cat:'症状・疾患',url:'https://www.youtube.com/watch?v=wsdiRbzDiXc'},
   {title:'（4）「鍼灸診療の真髄　職人芸の感覚」黒野保三先生による東洋医学・鍼治療の教え',cat:'東洋医学・理論',url:'https://www.youtube.com/watch?v=XgOSFDo4mOA'},
   {title:'（3）「鍼灸師としてゆるぎない自己を確立するための真理」黒野保三先生による東洋医学・鍼治療の教え',cat:'東洋医学・理論',url:'https://www.youtube.com/watch?v=AM9_Nvm0Yk8'},
   {title:'（2）「21世紀の鍼灸医師像」黒野保三先生による東洋医学・鍼治療の教え',cat:'東洋医学・理論',url:'https://www.youtube.com/watch?v=sM1q7Bm_o9E'},
   {title:'（1）「真に良き鍼灸師とは」黒野保三先生による東洋医学の教え',cat:'東洋医学・理論',url:'https://www.youtube.com/watch?v=iGFnDyF8ML4'},
-  {title:'痛くない鍼治療の秘密　練習方法の一つをご紹介します',cat:'施術・治療紹介',url:'https://www.youtube.com/watch?v=L_2-E8wBThM'},
+  {title:'痛くない鍼治療の秘密　練習方法の一つをご紹介します',cat:'症状・疾患',url:'https://www.youtube.com/watch?v=L_2-E8wBThM'},
   {title:'【アクセスのご案内】　井島鍼灸院',cat:'院内案内',url:'https://www.youtube.com/watch?v=PQUQg0rV39Y'},
   {title:'【初めての方へ】　井島鍼灸院',cat:'院内案内',url:'https://www.youtube.com/watch?v=CU7fOjDTfvc'},
   {title:'【鍼治療・健康に関する相談】　井島鍼灸院',cat:'院内案内',url:'https://www.youtube.com/watch?v=Vz4x-6T1Pc4'},
-  {title:'【痛くない鍼治療の3つの秘密】鍼治療に興味はあるけど怖い人必見！',cat:'施術・治療紹介',url:'https://www.youtube.com/watch?v=voF7a7vTS7E'},
+  {title:'【痛くない鍼治療の3つの秘密】鍼治療に興味はあるけど怖い人必見！',cat:'症状・疾患',url:'https://www.youtube.com/watch?v=voF7a7vTS7E'},
+  {title:'湿布でも痛み止めでも痛みが戻る理由｜慢性痛と自然治癒力の本質',cat:'症状・疾患',url:'https://youtu.be/153l8X25JkA',featured:true}
 ].map(v=>({...v,type:'ロング'}));
 
 const SHORT_RAW=[
@@ -212,42 +203,42 @@ const SHORT_RAW=[
   ['『上古天真論』なぜ人は老いるのか？','https://youtube.com/shorts/iw6gssrgCsU'],
   ['多発性筋痛症','https://youtube.com/shorts/kAyqJk_OEaI'],
   ['崑崙穴（こんろんけつ）','https://youtube.com/shorts/Kpvy-YlNz7Q'],
-  ['"頭維穴"（ずいけつ）「頭の境を守る門！思考のリセットボタン」','https://www.youtube.com/shorts/j1r6n93B_1s'],
+  ['頭維穴（ずいけつ）「頭の境を守る門！思考のリセットボタン」','https://www.youtube.com/shorts/j1r6n93B_1s'],
   ['【漫画でわかる難経七十五難】より深い治療法の考え方！','https://www.youtube.com/shorts/gxVwPIgDQAw'],
   ['傷は治ったのに痛い…その理由を脳と体の関係から解説','https://www.youtube.com/shorts/CmihpZC-WMU'],
-  ['"太谿穴"（たいけいけつ）「生命のエネルギーが湧き出る源泉！」','https://www.youtube.com/shorts/0l1x30Hxc5E'],
+  ['太谿穴（たいけいけつ）「生命のエネルギーが湧き出る源泉！」','https://www.youtube.com/shorts/0l1x30Hxc5E'],
   ['電気鍼は脳に何をしているのか？慢性痛研究の新発見','https://www.youtube.com/shorts/-dsc0_dw6Vg'],
   ['【多くの人が知らない目がピクピクする本当の原因】ミオキミア・チック・顔面けいれん','https://www.youtube.com/shorts/wtDluKsyH2Q'],
   ['【難経六十九難の核心】「虚実はこれだけ、やさしく解説」','https://www.youtube.com/shorts/JaQh92fwhwU'],
   ['【難経六十九難が明かす東洋医学の神秘】「臨床家の心を最も震わせる章！」','https://www.youtube.com/shorts/Mup_j7DYI-o'],
   ['【飛蚊症】あなたは目の中を見ています！','https://www.youtube.com/shorts/B0xC3kqu0m4'],
-  ['"関元穴"（かんげんけつ）「生命力の根っこに関わる最重要ポイント！」','https://www.youtube.com/shorts/gza6LYbL_0I'],
+  ['関元穴（かんげんけつ）「生命力の根っこに関わる最重要ポイント！」','https://www.youtube.com/shorts/gza6LYbL_0I'],
   ['【円形脱毛症の一症例】全身の脱毛と向き合った141日間の記録！','https://www.youtube.com/shorts/y_Y--bK9lQI'],
-  ['"列缺穴"（れっけつけつ）「肺の司令塔につながるツボ！」','https://www.youtube.com/shorts/nOsPNge1Oe0'],
+  ['列缺穴（れっけつけつ）「肺の司令塔につながるツボ！」','https://www.youtube.com/shorts/nOsPNge1Oe0'],
   ['【難経三十難が明かす東洋医学の秘密】「栄気と衛気の関係？」','https://www.youtube.com/shorts/62Qaisf9vag'],
   ['【仕事のストレスと❝めまい❞の深い関係】自分への信頼が戻ってきた','https://www.youtube.com/shorts/asLQDw8h2BQ'],
-  ['"照海穴"（しょうかいけつ）「足の内くるぶしに隠された神秘のスイッチ！」','https://www.youtube.com/shorts/S9CwpNj2s-k'],
+  ['照海穴（しょうかいけつ）「足の内くるぶしに隠された神秘のスイッチ！」','https://www.youtube.com/shorts/S9CwpNj2s-k'],
   ['【難経十五難が明かす東洋医学の秘密】「季節によっても正常な脈が違う？」','https://www.youtube.com/shorts/7ShpRPi4oL8'],
   ['【自律神経が乱れている人に共通する症状を7つ紹介！】病院では「異常なし」と言われたのになんとなく体がつらい…','https://www.youtube.com/shorts/EtCnpswP6do'],
-  ['"神門穴"（しんもんけつ）「心と脳と神経をつなぐツボ！」','https://www.youtube.com/shorts/Cq9h0DJ86XY'],
+  ['神門穴（しんもんけつ）「心と脳と神経をつなぐツボ！」','https://www.youtube.com/shorts/Cq9h0DJ86XY'],
   ['【難経八難が明かす東洋医学の秘密】「手首の脈が正常なのに、人はなぜ死ぬのか？」','https://www.youtube.com/shorts/u8nTxGlQmsU'],
   ['【HSCと小児鍼！】3分で解説、なぜ肌に触れるだけで落ち着くのか？','https://www.youtube.com/shorts/peypKT32r0E'],
-  ['"手三里穴"（てさんりけつ）「腕の一点で、肩が軽くなる理由！」','https://www.youtube.com/shorts/vlFjN1jr4Uo'],
+  ['手三里穴（てさんりけつ）「腕の一点で、肩が軽くなる理由！」','https://www.youtube.com/shorts/vlFjN1jr4Uo'],
   ['【自律神経失調症を克服！】原因がわからない不調…その裏で起きていたこと','https://www.youtube.com/shorts/oUjoE1ZxNgU'],
-  ['"角孫穴"（かくそんけつ）「メガネ・マスク頭痛との関係？」','https://www.youtube.com/shorts/F7D_DY_vbj0'],
-  ['"陽白穴"（ようはくけつ）「表情の明るさを制するツボ！」','https://www.youtube.com/shorts/ziz4-WWTi8o'],
+  ['角孫穴（かくそんけつ）「メガネ・マスク頭痛との関係？」','https://www.youtube.com/shorts/F7D_DY_vbj0'],
+  ['陽白穴（ようはくけつ）「表情の明るさを制するツボ！」','https://www.youtube.com/shorts/ziz4-WWTi8o'],
   ['【難経一難が明かす東洋医学の秘密】「なぜ手首の脈だけで全身がわかるのか？」','https://www.youtube.com/shorts/790zVWfk7w8'],
   ['【どうして息を上手く吸えない？】その正体、肺じゃないかも！','https://www.youtube.com/shorts/DxpH2k80ugQ'],
-  ['"地倉穴"（ちそうけつ）「笑顔の司令塔とも言えるポジションにあるツボ！」','https://www.youtube.com/shorts/_edIP5rN77U'],
-  ['"雲門穴"（うんもんけつ）「呼吸の通り道を開けるツボ！」','https://www.youtube.com/shorts/aMPmiG_FBrM'],
+  ['地倉穴（ちそうけつ）「笑顔の司令塔とも言えるポジションにあるツボ！」','https://www.youtube.com/shorts/_edIP5rN77U'],
+  ['雲門穴（うんもんけつ）「呼吸の通り道を開けるツボ！」','https://www.youtube.com/shorts/aMPmiG_FBrM'],
   ['【冷えのメカニズムとは？】近年分かってきた2つのメカニズムを解説！','https://www.youtube.com/shorts/wKl5BF4jqSY'],
-  ['"承山穴"（しょうざんけつ）「ふくらはぎに鎮座する最強のツボ！」','https://www.youtube.com/shorts/Ew4WAJs3rwU'],
-  ['"陰陵泉穴"（いんりょうせんけつ）「まずは、この美しい名前の秘密から！」','https://www.youtube.com/shorts/1Odb1EVOpvM'],
+  ['承山穴（しょうざんけつ）「ふくらはぎに鎮座する最強のツボ！」','https://www.youtube.com/shorts/Ew4WAJs3rwU'],
+  ['陰陵泉穴（いんりょうせんけつ）「まずは、この美しい名前の秘密から！」','https://www.youtube.com/shorts/1Odb1EVOpvM'],
   ['【だるさって何？】寝ても疲れが取れないのはなぜ？','https://www.youtube.com/shorts/cg8KiMnsHQs'],
-  ['"内関穴"（ないかんけつ）「宇宙飛行士も頼りにしたツボ！」','https://www.youtube.com/shorts/8qWNaAepsJA'],
-  ['"天突穴"（てんとつけつ）「のどと呼吸のツボ！」','https://www.youtube.com/shorts/rE4oF5MAwl8'],
+  ['内関穴（ないかんけつ）「宇宙飛行士も頼りにしたツボ！」','https://www.youtube.com/shorts/8qWNaAepsJA'],
+  ['天突穴（てんとつけつ）「のどと呼吸のツボ！」','https://www.youtube.com/shorts/rE4oF5MAwl8'],
   ['【しびれの正体】なぜ正座で足がしびれる？','https://www.youtube.com/shorts/rnt7sAVwXpk'],
-  ['"下関穴"（げかんけつ）「顔面神経や三叉神経が交差し、咀嚼に関わる強力な筋肉が密集するツボ！」','https://www.youtube.com/shorts/ZXEpl1KbAcg'],
+  ['下関穴（げかんけつ）「顔面神経や三叉神経が交差し、咀嚼に関わる強力な筋肉が密集するツボ！」','https://www.youtube.com/shorts/ZXEpl1KbAcg'],
   ['【かゆみの正体と脳のイジワルな仕組み!】痛みよりも厄介？','https://www.youtube.com/shorts/bPbA-RXme84'],
   ['【今なぜアメリカで脈診？】新しい脈診デバイスが開発されました!','https://www.youtube.com/shorts/uGSw9sB-C0Q'],
   ['【むくみの原因は？】グリコカリックスって何！','https://www.youtube.com/shorts/OQ1vQn6e0z8'],
@@ -256,52 +247,52 @@ const SHORT_RAW=[
   ['【なぜ動悸を感じるのか？】ちょっと意外な5つの話！','https://www.youtube.com/shorts/LzW1Qk9A5-M'],
   ['【高齢者の慢性腰痛に鍼治療が本当に効くのか？】アメリカの国立衛生研究所（NIH）が報告！','https://www.youtube.com/shorts/TCptk2vzmJw'],
   ['【足の裏が痛い！】足底腱膜炎は、なぜ起こるの？','https://www.youtube.com/shorts/VaRdruMYMiI'],
-  ['"至陰穴"（しいんけつ）「どうして足の小指のツボで逆子が回転するのか？」','https://www.youtube.com/shorts/9hpqP80Vg3A'],
+  ['至陰穴（しいんけつ）「どうして足の小指のツボで逆子が回転するのか？」','https://www.youtube.com/shorts/9hpqP80Vg3A'],
   ['【体温調節ができない不調を克服！】自律神経に鍼治療ができること','https://www.youtube.com/shorts/rD43Wtp13YU'],
   ['【警察官試験に合格できた！】突発性難聴　絶望からの挑戦','https://www.youtube.com/shorts/G-adU68VhpU'],
   ['【養生訓とは？】「300年前の健康本に学ぶ、長生きの秘密」','https://www.youtube.com/shorts/6Dva9IMXf4Y'],
-  ['"合谷穴"（ごうこくけつ）「現場で最も選ばれているツボ！」','https://www.youtube.com/shorts/Sqxu-8CzKbQ'],
+  ['合谷穴（ごうこくけつ）「現場で最も選ばれているツボ！」','https://www.youtube.com/shorts/Sqxu-8CzKbQ'],
   ['【お腹が鳴るのが怖い！】過敏性腸症候群に悩むあなたへ届けたい実話','https://www.youtube.com/shorts/9gN7JfHiZxw'],
-  ['"鳩尾穴"「読めたらスゴい！ツボ好きなら知ってる"この漢字"！」','https://www.youtube.com/shorts/TneoXUy0XCw'],
+  ['鳩尾穴「読めたらスゴい！ツボ好きなら知ってる"この漢字"！」','https://www.youtube.com/shorts/TneoXUy0XCw'],
   ['【指の第一関節が腫れて痛い！】ヘバーデン結節は、なぜ起こるの？','https://www.youtube.com/shorts/3U3IFS-s3o8'],
   ['【日本最古の医学書「医心方」とは？】中国の膨大な医学書を取り入れながら、日本独自の体系として整理された、日本医学の大図鑑！','https://www.youtube.com/shorts/Yy5rFvuSBT4'],
-  ['"曲池穴"（きょくちけつ）「名前が解剖学的な形をあらわす代表！」','https://www.youtube.com/shorts/wh4c1ePU6cA'],
-  ['"三陰交穴"（さんいんこうけつ）「３つの陰の経絡が交わる場所という意味です！」','https://www.youtube.com/shorts/DjfTOWVk_-U'],
+  ['曲池穴（きょくちけつ）「名前が解剖学的な形をあらわす代表！」','https://www.youtube.com/shorts/wh4c1ePU6cA'],
+  ['三陰交穴（さんいんこうけつ）「３つの陰の経絡が交わる場所という意味です！」','https://www.youtube.com/shorts/DjfTOWVk_-U'],
   ['【寝違えの正体！】「最新の研究や臨床報告からわかってきた」','https://www.youtube.com/shorts/b2uObE8gk48'],
-  ['"翳風穴"（えいふうけつ）「まさに耳たぶに隠れるようにあるツボなんです！」','https://www.youtube.com/shorts/SbZuNO23n_o'],
+  ['翳風穴（えいふうけつ）「まさに耳たぶに隠れるようにあるツボなんです！」','https://www.youtube.com/shorts/SbZuNO23n_o'],
   ['【足がつる原因の最新情報】「神経と筋肉のセンサーのバランス」が大きなカギ!','https://www.youtube.com/shorts/-WLBiwQ9JN4'],
   ['【"なぜ長引く、なぜこんなに痛い"】五十肩の最新情報について解説！','https://www.youtube.com/shorts/mOX-FAG4c2A'],
-  ['"膻中穴"（だんちゅうけつ）「膻という字は東洋医学でいう心包（しんぽう）を表す？」','https://www.youtube.com/shorts/q57yckTIPbs'],
-  ['"完骨穴"（かんこつけつ）「名前の由来が耳の後ろにある骨？」','https://www.youtube.com/shorts/OpYh1q-8JNM'],
+  ['膻中穴（だんちゅうけつ）「膻という字は東洋医学でいう心包（しんぽう）を表す？」','https://www.youtube.com/shorts/q57yckTIPbs'],
+  ['完骨穴（かんこつけつ）「名前の由来が耳の後ろにある骨？」','https://www.youtube.com/shorts/OpYh1q-8JNM'],
   ['【"守る"より"動かす"】顎関節症の新常識について解説！','https://www.youtube.com/shorts/xF7W449SSnc'],
   ['【"捻挫"応急処置の新時代！】RICEからPOLICEへ！','https://www.youtube.com/shorts/k6DSJpvXKYE'],
-  ['"魚際穴"（ぎょさいけつ）「名前の由来がとってもユニーク！」','https://www.youtube.com/shorts/8gACnvvEZF8'],
-  ['"百会穴"（ひゃくえけつ）「頭のてっぺんに、"全身の司令塔"があるって知ってましたか？」','https://www.youtube.com/shorts/xq1u-4xCBzc'],
+  ['魚際穴（ぎょさいけつ）「名前の由来がとってもユニーク！」','https://www.youtube.com/shorts/8gACnvvEZF8'],
+  ['百会穴（ひゃくえけつ）「頭のてっぺんに、"全身の司令塔"があるって知ってましたか？」','https://www.youtube.com/shorts/xq1u-4xCBzc'],
   ['【本当に"膝だけ"が原因？】全身視点による膝の守り方！','https://www.youtube.com/shorts/mnNbsQztJBk'],
   ['【陰陽の世界観】陰と陽で読み解く！東洋医学と宇宙のつながり！','https://www.youtube.com/shorts/6O_fSRfl6nI'],
   ['【長引く肘痛の原因は？】モヤモヤ血管という新しい視点！','https://www.youtube.com/shorts/smRwIyiEFx4'],
-  ['"厥陰兪穴"（けついんゆけつ）「ストレスや疲れ悩むあなたに、とっておきのツボをご紹介します」','https://www.youtube.com/shorts/S1UN_gOvHZ8'],
+  ['厥陰兪穴（けついんゆけつ）「ストレスや疲れ悩むあなたに、とっておきのツボをご紹介します」','https://www.youtube.com/shorts/S1UN_gOvHZ8'],
   ['【ぎっくり腰や慢性的な腰痛の予防に】腰痛でお困りの方に対する井島鍼灸院の取り組み！','https://www.youtube.com/shorts/UQGAowpO6ys'],
   ['【耳鳴り】どうして音が聞こえるの！','https://www.youtube.com/shorts/AC9qMbDI2t8'],
-  ['"肺兪穴"（はいゆけつ）「肺と心に効くツボ！？」','https://www.youtube.com/shorts/BcudKoxqAe8'],
+  ['肺兪穴（はいゆけつ）「肺と心に効くツボ！？」','https://www.youtube.com/shorts/BcudKoxqAe8'],
   ['【鍼灸の"真髄"とは？】師匠黒野保三先生に教えて頂いた、奥深い世界の入り口！','https://www.youtube.com/shorts/kSexiuonQ2I'],
   ['【脈がとぶ】不整脈についてわかりやすく解説します！','https://www.youtube.com/shorts/1qTd4FLdPqI'],
-  ['"肩井穴"（けんせいけつ）「肩こりに悩むあなたにとって、救世主になるかもしれないツボ！」','https://www.youtube.com/shorts/IafvWy0dUCc'],
+  ['肩井穴（けんせいけつ）「肩こりに悩むあなたにとって、救世主になるかもしれないツボ！」','https://www.youtube.com/shorts/IafvWy0dUCc'],
   ['【神経麻痺】橈骨・正中・尺骨麻痺の違い、すぐわかります！','https://www.youtube.com/shorts/Ax8CadW4sm0'],
   ['【生理痛・PMSにお悩みの方へ】岐阜市の鍼灸院が行うやさしい身体ケア！','https://www.youtube.com/shorts/CIxgNyZ2icI'],
-  ['"気海穴"（きかいけつ）「元気が集まる場所といわれる、特別なツボ！」','https://www.youtube.com/shorts/w1YFfXNAaN8'],
+  ['気海穴（きかいけつ）「元気が集まる場所といわれる、特別なツボ！」','https://www.youtube.com/shorts/w1YFfXNAaN8'],
   ['【坐骨神経痛でお悩みの方へ】鍼灸院からの情報提供！','https://www.youtube.com/shorts/dygE4z1rgAQ'],
   ['【検査で異常なし…でも苦しい】心臓神経症の正体と井島鍼灸院の取り組み！','https://www.youtube.com/shorts/KPmx0s9J_vM'],
   ['【朝がつらい…】起立性低血圧の症状と生活の中でできる対策について解説します！','https://www.youtube.com/shorts/3F-ouThfEKM'],
-  ['"期門穴"（きもんけつ）「東洋医学でとても特別な最期のツボ！」','https://www.youtube.com/shorts/4S0d_8C2xd4'],
-  ['"天枢穴"（てんすうけつ）「おへそに隠された神秘のツボの物語！？」','https://www.youtube.com/shorts/XxwcapWZrdI'],
-  ['"腎兪穴"（じんゆけつ）「腎のエネルギー補給ポイント！？」鍼灸師が徹底解説！','https://www.youtube.com/shorts/bCjynSiYbMc'],
+  ['期門穴（きもんけつ）「東洋医学でとても特別な最期のツボ！」','https://www.youtube.com/shorts/4S0d_8C2xd4'],
+  ['天枢穴（てんすうけつ）「おへそに隠された神秘のツボの物語！？」','https://www.youtube.com/shorts/XxwcapWZrdI'],
+  ['腎兪穴（じんゆけつ）「腎のエネルギー補給ポイント！？」鍼灸師が徹底解説！','https://www.youtube.com/shorts/bCjynSiYbMc'],
   ['【逆子と言われたら…あきらめないで！】鍼灸でできること、あります！','https://www.youtube.com/shorts/0WAvbnc1NJ8'],
   ['【咳が続く】感染症の"あと"に起こる意外な理由とは？','https://www.youtube.com/shorts/1z1Mx_naCgc'],
-  ['"中脘穴"（ちゅうかんけつ）「胃の万能スイッチ！？」鍼灸師が徹底解説！','https://www.youtube.com/shorts/rK6y5nrgT44'],
-  ['"膏肓穴"（こうこうけつ）「背中に隠された難病に対応するツボ！？」全身を整える万能の経穴','https://www.youtube.com/shorts/_OiGovNSwHs'],
-  ['"大杼穴"（だいじょけつ）肩こり・疲れ・免疫力アップ！？背中の最強ツボを徹底解説！','https://www.youtube.com/shorts/rgPEaNmrxr8'],
-  ['"風池穴"（ふうちけつ）風邪・肩こり・不眠に効く⁉ 首のくぼみにある最強ツボの秘密！','https://www.youtube.com/shorts/3Gc_uHCg8OA'],
+  ['中脘穴（ちゅうかんけつ）「胃の万能スイッチ！？」鍼灸師が徹底解説！','https://www.youtube.com/shorts/rK6y5nrgT44'],
+  ['膏肓穴（こうこうけつ）「背中に隠された難病に対応するツボ！？」全身を整える万能の経穴','https://www.youtube.com/shorts/_OiGovNSwHs'],
+  ['大杼穴（だいじょけつ）肩こり・疲れ・免疫力アップ！？背中の最強ツボを徹底解説！','https://www.youtube.com/shorts/rgPEaNmrxr8'],
+  ['風池穴（ふうちけつ）風邪・肩こり・不眠に効く⁉ 首のくぼみにある最強ツボの秘密！','https://www.youtube.com/shorts/3Gc_uHCg8OA'],
   ['天柱穴（てんちゅうけつ）の驚くべき力とは？【東洋医学の神秘】','https://www.youtube.com/shorts/nDxfX4WKoLw'],
   ['【不妊に悩む方へ】鍼灸治療の効果、知っていますか？','https://www.youtube.com/shorts/FE5ejkhNWoQ'],
   ['【江戸時代には鍼灸が高度な医療体系として確立されました】多くの鍼灸師が町や村で医者として活躍！','https://www.youtube.com/shorts/VRSTYihzhRA'],
@@ -384,39 +375,47 @@ const SHORT_RAW=[
   ['鍼刺激による生体の反応は、数cm違う経穴（ツボ）で変化する','https://www.youtube.com/shorts/0o_gayDmM-Y'],
   ['日本人だけが知らない!「東洋医学」が今、世界で大注目されているワケ','https://www.youtube.com/shorts/gHi-FdFyIfc'],
   ['「AIと日本の鍼灸」','https://youtube.com/shorts/1LIkoWMtJVA'],
-  ['"尺沢穴"（しゃくたくけつ）','https://youtube.com/shorts/dgLWV0_DeMc'],
+  ['尺沢穴（しゃくたくけつ）','https://youtube.com/shorts/dgLWV0_DeMc'],
   ['【難経七十五難】やさしく解説','https://youtube.com/shorts/v5i2I1qtVqU'],
   ['のどが詰まる','https://youtube.com/shorts/nDNoGerz35Y'],
-  ['"太衝穴"（たいしょうけつ）','https://youtube.com/shorts/6qFfy7PbWzY'],
+  ['太衝穴（たいしょうけつ）','https://youtube.com/shorts/6qFfy7PbWzY'],
   ['「鍼って効くの？」','https://youtube.com/shorts/oHTrhDa-REI'],
   ['バレット食道','https://www.youtube.com/shorts/j1r6n93B_1s'],
-  // ── 2026/07 追加 20本 ──
-  ['"伏兎穴"（ふくとけつ）太ももの名穴「伏兎」の由来が面白い！','https://www.youtube.com/shorts/3H7KpW5Kepo'],
-  ['"太淵穴"（たいえんけつ）なぜ手首で脈を診るのか？','https://www.youtube.com/shorts/AU6VHn2R2do'],
+  ['伏兎穴（ふくとけつ）太ももの名穴「伏兎」の由来が面白い！','https://www.youtube.com/shorts/3H7KpW5Kepo'],
+  ['太淵穴（たいえんけつ）なぜ手首で脈を診るのか？','https://www.youtube.com/shorts/AU6VHn2R2do'],
   ['夜中に目が覚める原因とは？中途覚醒が起こる3つの理由','https://www.youtube.com/shorts/HaNuZeb0Coc'],
-  ['"廉泉穴"（れんせんけつ）声と飲み込みを助けるツボ！','https://www.youtube.com/shorts/GaWM62OOdk4'],
+  ['廉泉穴（れんせんけつ）声と飲み込みを助けるツボ！','https://www.youtube.com/shorts/GaWM62OOdk4'],
   ['〜自然のリズムと調和し「陽気」を守る〜【黄帝内経・素問】第3篇「生気通天論」','https://www.youtube.com/shorts/Y4HptlqiMPc'],
   ['【夜、足が冷えて眠れない…】靴下を履く前に知っておくべき真実','https://www.youtube.com/shorts/hwuvOpkAM5s'],
-  ['"中府穴"（ちゅうふけつ）咳、痰、胸のつかえに効くツボ','https://www.youtube.com/shorts/9sv9KRQ_LBU'],
+  ['中府穴（ちゅうふけつ）咳、痰、胸のつかえに効くツボ','https://www.youtube.com/shorts/9sv9KRQ_LBU'],
   ['2000年前のバイブル「四気調神大論篇」','https://www.youtube.com/shorts/Y_aK1d67G48'],
   ['【すねの内側が痛い】シンスプリントの本当の原因','https://www.youtube.com/shorts/XOO0abOpyZk'],
   ['【驚きの研究】アメリカの救急外来で鍼治療が導入されている理由','https://www.youtube.com/shorts/5IDU52B6fL4'],
-  ['"命門穴"（めいもんけつ）なぜ生命の出入り口と呼ばれるのか','https://www.youtube.com/shorts/tZw3RuhP43g'],
+  ['命門穴（めいもんけつ）なぜ生命の出入り口と呼ばれるのか','https://www.youtube.com/shorts/tZw3RuhP43g'],
   ['WHOが注目する伝統医学とは？','https://www.youtube.com/shorts/J8srgYKQYKE'],
   ['なぜ眠れなくなるのか？『黄帝内経・邪客篇』','https://www.youtube.com/shorts/D8evKU34pX0'],
   ['アルツハイマー病に鍼が効く？米UCアーバイン最新研究','https://www.youtube.com/shorts/yPWKS7VhTrA'],
-  ['"労宮穴"（ろうきゅうけつ）手のひらの心を整えるツボ','https://www.youtube.com/shorts/vmnoBSULH5g'],
+  ['労宮穴（ろうきゅうけつ）手のひらの心を整えるツボ','https://www.youtube.com/shorts/vmnoBSULH5g'],
   ['黄帝内経・霊枢『経脈篇』経絡理論の核心','https://www.youtube.com/shorts/nQx9VWlChMU'],
   ['「痛みを覚える脳」の正体｜慢性痛はなぜ治りにくいのか','https://www.youtube.com/shorts/Zsl1JprV79M'],
-  ['"迎香穴"（げいこうけつ）鼻づまりに使われ続けた名穴','https://www.youtube.com/shorts/dstApa-ZfBA'],
+  ['迎香穴（げいこうけつ）鼻づまりに使われ続けた名穴','https://www.youtube.com/shorts/dstApa-ZfBA'],
   ['2000年前に存在した"鍼の戦略書"【黄帝内経】「官鍼篇」','https://www.youtube.com/shorts/W19piFKOuBg'],
   ['なぜ古代人は"耳を巡る経絡"を知っていたのか？','https://www.youtube.com/shorts/TsibwAHr-v8'],
-  // ── 2026/07 追加 1本 ──
   ['【2026年最新研究】がん関連倦怠感に鍼治療は効くのか？28研究を徹底解説','https://youtube.com/shorts/GJ-826mFgEU'],
-].map(([title,url])=>({title,url,cat:c(title),type:'ショート'}));
+  ['少し休むとまた歩ける？脊柱管狭窄症のサイン','https://youtube.com/shorts/iRlG34mRm38'],
+  ['【痛みの新常識】痛みは「体の故障」ではない？長引く痛みの悪循環を断ち切る方法！','https://youtube.com/shorts/Ec52YsMPjkU']
+].map(([title,url])=>{
+  const t=title;
+  let cat='症状・疾患';
+  if(/穴|けつ|ごうこく|たいけい|かんげん|れっけつ|しょうかい|しんもん|てさんり|かくそん|ようはく|ちそう|うんもん|しょうざん|いんりょうせん|ないかん|てんとつ|げかん|しいん|ずいけつ|だんちゅう|かんこつ|ぎょさい|ひゃくえ|けんせい|きかい|きもん|てんすう|じんゆ|ちゅうかん|こうこう|だいじょ|ふうち|てんちゅう|はいゆ|けついんゆ|ふくと|たいえん|れんせん|ちゅうふ|めいもん|ろうきゅう|げいこう|しゃくたく|たいしょう|さんようらく|じもん|だいつい|けっかい|こんろん|百会|合谷|足三里|三陰交|太衝|内関|天突|曲池|翳風|膻中|完骨|魚際|肺兪|肩井|気海|期門|天枢|腎兪|中脘|膏肓|大杼|風池|天柱|厥陰兪|鳩尾/.test(t)) cat='ツボ・経穴';
+  else if(/難経|経絡|東洋医学|気血|陰陽|養生訓|医心方|黄帝内経|生体制御|穴名考|江戸|杉山和一|鍼灸医学の歴史|361経穴|黒野式|日本最古|中国最古|黄帝八十一難経|脈診|本神篇|九鍼十二原|上古天真論|陰陽応象大論|生気通天論|四気調神大論|邪客篇|経脈篇|官鍼篇|霊枢|素問/.test(t)) cat='東洋医学・理論';
+  else if(/逆子.*セルフ|養生|セルフケア/.test(t)) cat='セルフケア・養生';
+  else if(/症例|改善.*過程|治療方法.*紹介|施術方法|訓練方法|生体制御療法|技術訓練|無痛|刺さない|人間性|研究.*紹介|鍼で炎症|足三里.*研究|解剖学的|必読書|柳原法|発症後.*注意|鍼灸.*真髄|世界で話題|今世界|治し方|鍼治療.*できること|鍼灸院で治療する|ファシア|保険適用|世界.*研究|AIと/.test(t)) cat='施術・治療紹介';
+  else if(/アクセス|受付時間|治療費|初めての方|相談|ほっとする空間|よく頂くご質問/.test(t)) cat='院内案内';
+  return {title,url,cat,type:'ショート'};
+});
 
 const ALL=[...LONG,...SHORT_RAW];
-
 let currentType='すべて',currentCat='すべて',currentQ='';
 
 function render(){
@@ -424,18 +423,14 @@ function render(){
   if(currentType!=='すべて') list=list.filter(v=>v.type===currentType);
   if(currentCat!=='すべて')  list=list.filter(v=>v.cat===currentCat);
   if(currentQ){const q=currentQ.toLowerCase();list=list.filter(v=>v.title.toLowerCase().includes(q));}
-
   document.getElementById('countBar').innerHTML=`全 <span>${ALL.length}</span> 本 ／ 表示中 <span>${list.length}</span> 本`;
-
   if(!list.length){document.getElementById('content').innerHTML='<div class="empty">該当する動画が見つかりませんでした。</div>';return;}
-
   const groups={};
   list.forEach(v=>{if(!groups[v.cat])groups[v.cat]=[];groups[v.cat].push(v);});
   if(currentCat==='すべて'||currentCat===FEATURED_CAT){
     const featured=list.filter(v=>v.featured);
     if(featured.length){groups[FEATURED_CAT]=featured;}
   }
-
   let html='';
   CAT_ORDER.forEach(cat=>{
     if(!groups[cat])return;
@@ -467,7 +462,6 @@ document.getElementById('filterTabs').addEventListener('click',e=>{
   document.querySelectorAll('.filter-tab').forEach(x=>x.classList.remove('active'));
   b.classList.add('active');currentCat=b.dataset.cat;render();
 });
-
 render();
 </script>
 </body>
