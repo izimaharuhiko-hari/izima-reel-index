@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>note マガジン｜記事目次</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;600;700&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--gold:#C9A84C;--gold-dark:#8B6914;--dark:#1A1510;--cream:#F5F0E8;--cream2:#EDE8DC;--text:#2C2418;--text-muted:#6B5D4A;--border:rgba(201,168,76,0.25);--card-bg:#FDFAF5;}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Noto Sans JP',sans-serif;background:var(--cream2);color:var(--text);min-height:100vh;}
+.hero{background:var(--dark);background-image:radial-gradient(ellipse at 20% 50%,rgba(201,168,76,.08) 0%,transparent 60%),radial-gradient(ellipse at 80% 20%,rgba(201,168,76,.05) 0%,transparent 50%),repeating-linear-gradient(45deg,transparent,transparent 40px,rgba(201,168,76,.02) 40px,rgba(201,168,76,.02) 41px);padding:52px 24px 36px;text-align:center;position:relative;}
+.hero::after{content:'';position:absolute;bottom:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);}
+.hero-emblem{width:60px;height:60px;border:1.5px solid var(--gold);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 18px;font-family:'Noto Serif JP',serif;font-size:20px;color:var(--gold);background:rgba(201,168,76,.08);}
+.hero h1{font-family:'Noto Serif JP',serif;font-size:26px;font-weight:700;color:#fff;line-height:1.5;letter-spacing:.05em;margin-bottom:4px;}
+.hero-sub{font-size:11px;letter-spacing:.25em;color:var(--gold);text-transform:uppercase;margin-bottom:8px;}
+.hero-desc{font-size:12px;color:rgba(255,255,255,.45);margin-top:8px;}
+.controls{background:var(--cream);padding:18px 16px 14px;border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100;}
+.search-wrap{position:relative;max-width:600px;margin:0 auto 12px;}
+.search-wrap svg{position:absolute;left:14px;top:50%;transform:translateY(-50%);width:15px;height:15px;color:var(--gold);}
+.search-input{width:100%;padding:9px 16px 9px 40px;border:1px solid var(--border);border-radius:999px;background:#fff;font-family:'Noto Sans JP',sans-serif;font-size:13px;color:var(--text);outline:none;transition:border-color .2s;}
+.search-input:focus{border-color:var(--gold);}
+.search-input::placeholder{color:#9A8E7E;}
+.filter-tabs{display:flex;gap:6px;flex-wrap:wrap;justify-content:center;max-width:900px;margin:0 auto;}
+.filter-tab{padding:5px 13px;border-radius:999px;border:1px solid var(--border);background:transparent;font-family:'Noto Sans JP',sans-serif;font-size:11px;color:var(--text-muted);cursor:pointer;transition:all .15s;white-space:nowrap;}
+.filter-tab.active{background:var(--dark);color:var(--gold);border-color:var(--dark);}
+.filter-tab:hover:not(.active){border-color:var(--gold);color:var(--gold-dark);}
+.main{max-width:980px;margin:0 auto;padding:22px 16px 48px;}
+.count-bar{text-align:right;font-size:11px;color:var(--text-muted);margin-bottom:18px;}
+.count-bar span{color:var(--text);font-weight:500;}
+.section{margin-bottom:32px;}
+.section-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;padding-bottom:8px;border-bottom:1px solid var(--border);}
+.section-title{display:flex;align-items:center;gap:9px;font-family:'Noto Serif JP',serif;font-size:15px;font-weight:600;color:var(--text);}
+.section-icon{width:26px;height:26px;border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:13px;flex-shrink:0;}
+.section-count{font-size:11px;color:var(--gold);font-weight:500;white-space:nowrap;}
+.card-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:10px;}
+.card{background:var(--card-bg);border:1px solid rgba(201,168,76,.2);border-radius:10px;padding:12px 14px;transition:all .18s;text-decoration:none;display:block;position:relative;overflow:hidden;}
+.card::before{content:'';position:absolute;top:0;left:0;width:3px;height:100%;background:var(--cat-color,var(--gold));opacity:.6;}
+.card:hover{border-color:var(--gold);transform:translateY(-2px);box-shadow:0 4px 14px rgba(139,105,20,.12);}
+.card-platform{display:flex;align-items:center;gap:5px;font-size:10px;color:var(--text-muted);margin-bottom:5px;}
+.note-badge{display:inline-flex;align-items:center;justify-content:center;width:14px;height:14px;border-radius:3px;background:#41C9B4;color:#fff;font-size:9px;font-weight:700;flex-shrink:0;}
+.card-num{color:var(--gold-dark);font-weight:700;}
+.card-title{font-size:12px;font-weight:700;color:var(--text);line-height:1.5;}
+.empty{text-align:center;padding:40px 0;color:var(--text-muted);font-size:13px;}
+@media(max-width:480px){.hero h1{font-size:20px;}.card-grid{grid-template-columns:1fr 1fr;}}
+</style>
+</head>
+<body>
+<header class="hero">
+  <div class="hero-emblem">鍼</div>
+  <p class="hero-sub">note Magazine Index</p>
+  <h1>井島鍼灸院 note<br>記事 目次</h1>
+  <p class="hero-desc">マガジン別・全記事ライブラリ</p>
+</header>
+<div class="controls">
+  <div class="search-wrap">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+    <input class="search-input" type="text" id="searchInput" placeholder="キーワードで検索（例：ツボ、養生、顔面神経麻痺）">
+  </div>
+  <div class="filter-tabs" id="filterTabs">
+    <button class="filter-tab active" data-cat="すべて">すべて</button>
+    <button class="filter-tab" data-cat="m1">①鍼はなぜ効くのか</button>
+    <button class="filter-tab" data-cat="m2">②ツボ（経穴）の世界</button>
+    <button class="filter-tab" data-cat="m3">③顔面神経麻痺と鍼治療</button>
+    <button class="filter-tab" data-cat="m4">④この症状に鍼灸ができること</button>
+    <button class="filter-tab" data-cat="m5">⑤健康になる練習</button>
+    <button class="filter-tab" data-cat="m6">⑥養生と心の整え方</button>
+  </div>
+</div>
+<main class="main">
+  <div class="count-bar" id="countBar"></div>
+  <div id="content"></div>
+</main>
+<script>
+const MAG_META={
+  m1:{title:'①鍼はなぜ効くのか｜古典と科学でひもとく鍼の真髄',icon:'📖',color:'#2D6B3E'},
+  m2:{title:'②ツボ（経穴）の世界｜古典に眠る知恵をひとつずつ',icon:'☯',color:'#1A4A6E'},
+  m3:{title:'③顔面神経麻痺と鍼治療｜改善への道としくみを解説',icon:'🩺',color:'#8B2020'},
+  m4:{title:'④この症状に鍼灸ができること｜お悩み別ガイド',icon:'🌿',color:'#B5651D'},
+  m5:{title:'⑤健康になる練習｜今日からできる体を整える習慣',icon:'💪',color:'#5A3A7E'},
+  m6:{title:'⑥養生と心の整え方｜300年の知恵に学ぶ健康エッセイ',icon:'✍️',color:'#7A5A1A'},
+};
+const MAG_ORDER=['m1','m2','m3','m4','m5','m6'];
+
+const RAW={
+m1:[
+['『痛みの科学』と『治療の本質』','https://note.com/hari4939/n/n181a453b5985'],
+['2000年以上前にすでに示されていた「個別化治療」の思想──黄帝内経・霊枢「官鍼篇」を読む','https://note.com/hari4939/n/n0fdd48187f77'],
+['鍼治療が保険適用へ前進—ニューヨーク州で起きた、静かな、しかし大きな変化','https://note.com/hari4939/n/n19a81c12c798'],
+['40年前の日本と、いまの世界——脈診が時代をつなぐ','https://note.com/hari4939/n/nfa285611a4f2'],
+['鍼治療は世界でどれくらい研究されている？最新分析で見えた驚きの実態！','https://note.com/hari4939/n/n25950fd46fbc'],
+['長引く痛みで起きる変化 人間は痛みを感じるのが上手くなる。と聞いたら信じられますか？','https://note.com/hari4939/n/n3597727d76f7'],
+['『九鍼十二原――2000年前の鍼灸師たちが辿り着いた治療論』','https://note.com/hari4939/n/n5f318b7284ba'],
+['「肩こりだから、肩に鍼を刺す」わけではない理由。2000年前の医学書が教えてくれること','https://note.com/hari4939/n/n736a8d4dab42'],
+['鍼治療は「経験と伝統」から「科学的根拠」の時代へ。世界的な研究動向が示すもの','https://note.com/hari4939/n/n2a60b6d32be0'],
+['【鍼はなぜ効くのか？】ファシアと自律神経からわかりやすく解説！','https://note.com/hari4939/n/n53f7ae0d5223'],
+['「鍼って効くの？」に65歳の鍼灸師が本気で答えます','https://note.com/hari4939/n/neff49fd437a4'],
+['伝説の攻略本 黄帝八十一難経とは？','https://note.com/hari4939/n/n3963139a1a1a'],
+['国宝 医心方の世界〜仁和寺の祈りと学び','https://note.com/hari4939/n/nfd6790595c8b'],
+['【江戸時代の名鍼灸師、杉山和一の教育','https://note.com/hari4939/n/n8a9876779995'],
+['江戸時代の名鍼灸師、杉山和一の生涯','https://note.com/hari4939/n/ncf4ebd3bda86'],
+['鍼治療の人間性について 東洋医学の解説動画 井島鍼灸院','https://note.com/hari4939/n/ndad33095423e'],
+['鍼治療の技術について 東洋医学の解説動画 井島鍼灸院','https://note.com/hari4939/n/n1ead45e19fc0'],
+],
+m2:[
+['迎香（げいこう）――鼻づまりの奥に潜む、東洋医学の知恵','https://note.com/hari4939/n/na4642e244839'],
+['臨床の現場で最も選ばれているツボ「合谷」――『鍼灸医学』が伝える千年の知恵','https://note.com/hari4939/n/n53a848320e46'],
+['腕のツボなのに、耳・歯・頭・自律神経まで届く ―「三陽絡」の話','https://note.com/hari4939/n/nd93f93585d69'],
+['肺と脈を同時に整える「太淵」――手首に宿る、東洋医学の三重の要穴','https://note.com/hari4939/n/n1875297d9b43'],
+['「三陰交」── 3つの陰の経絡が交わる、体の特別な交差点','https://note.com/hari4939/n/na3ff8721e250'],
+['"血海穴"（けっかいけつ）「婦人科と皮膚に重要な脾経のツボ！」','https://note.com/hari4939/n/nf1f6c07a3e8e'],
+['崑崙（こんろん）― 足首にある「腰痛のスイッチ」――','https://note.com/hari4939/n/n1f85afdefd3c'],
+['"三陰交穴"（さんいんこうけつ）「３つの陰の経絡が交わる場所という意味です！」','https://note.com/hari4939/n/n701111012971'],
+['【ツボ（経穴）の名前で何がわかるの?？】穴名考はツボの名前の由来や意味を解釈する方法！','https://note.com/hari4939/n/n711f93599628'],
+['経穴（ツボ）について 東洋医学の解説動画 井島鍼灸院','https://note.com/hari4939/n/nd704b21f02d1'],
+],
+m3:[
+['【顔面神経麻痺に対する鍼治療効果の報告】第35回公益社団法人 生体制御学会学術集会の一般口演！','https://note.com/hari4939/n/n4de9274785a5'],
+['【顔面神経麻痺は鍼治療で改善】発症後一番大切な注意点をお伝えします！','https://note.com/hari4939/n/n91f1050535e0'],
+['【ラムゼイハント症候群（顔面神経麻痺）の鍼治療（症例紹介）】顔面筋マッサージの方法を詳しく解説！','https://note.com/hari4939/n/n41ac9528ffc1'],
+['【顔面神経麻痺に対する鍼治療効果】公益社団法人生体制御学会の学術集会で報告','https://note.com/hari4939/n/n28ddcf753a1f'],
+['【3年半続いた顔面神経麻痺症状が鍼治療で改善】長期化した症状への効果的アプローチを解説！','https://note.com/hari4939/n/n790fc86476fc'],
+],
+m4:[
+['すねの内側が痛む「シンスプリント」とは？原因・見分け方・鍼灸でできること','https://note.com/hari4939/n/nb7e6f0798400'],
+['足が冷たくて眠れない夜に。その"冷え"が教えてくれること','https://note.com/hari4939/n/nbe3796f685e0'],
+['朝、着替えられないほどの激痛。それ「多発性筋痛症」かもしれません','https://note.com/hari4939/n/nc51e13b2538e'],
+['痛みは「学習」される。だからこそ、ほどいていける。','https://note.com/hari4939/n/n45d4549b54a1'],
+['ヘバーデン結節 ― 指の変形と痛みに悩む方へ','https://note.com/hari4939/n/nea21a234d4f4'],
+['救急外来で鍼治療？ アメリカ・デューク大学で進む最前線の研究','https://note.com/hari4939/n/n6982a6ff8dbb'],
+['東洋医学的に見る「疲れると耳鳴りが強くなる」「眠れない夜は耳鳴りが大きく聞こえる」その正体とは？','https://note.com/hari4939/n/n719b55a3c5f3'],
+['アルツハイマー病に鍼が効く？米UCアーバイン最新研究が示した可能性','https://note.com/hari4939/n/nb7242081c41a'],
+['11年間続いた「顔の激痛」。三叉神経痛と闘った81歳男性が、鍼治療で笑顔を取り戻すまで','https://note.com/hari4939/n/n8fa31b6fdf16'],
+['朝起きた瞬間から首が重い…その原因、枕だけじゃないかもしれません','https://note.com/hari4939/n/nf443b0ea7283'],
+['夜になると不安が押し寄せて眠れないあなたへ ── 夜の不安の正体と、今夜から試せる眠りのヒント','https://note.com/hari4939/n/n0c65401bcb4b'],
+['【警察官試験に合格できた！】突発性難聴 あきらめたら０％','https://note.com/hari4939/n/nac67826fb69a'],
+['【体温が安定しない不調を克服！】自律神経に鍼治療ができること','https://note.com/hari4939/n/ncb28f219b798'],
+['【お腹が鳴るのが怖い】過敏性腸症候群に悩むあなたへ届けたい実話','https://note.com/hari4939/n/n12a596c6a596'],
+['【口内炎の鍼治療】全身調整と局所療法のアプローチで予防と改善法を解説！','https://note.com/hari4939/n/nb62ec0b34b99'],
+['【帯状疱疹後神経痛の対処法】帯状疱疹後神経痛に鍼治療ができることを解説！','https://note.com/hari4939/n/n9dc467f6438e'],
+['冷え性について 井島鍼灸院','https://note.com/hari4939/n/n9405cd693502'],
+['鍼治療による突発性難聴について 井島鍼灸院','https://note.com/hari4939/n/na4fbc01a8d08'],
+['眼精疲労について 井島鍼灸院','https://note.com/hari4939/n/nefe4a999bdb3'],
+],
+m5:[
+['本当の「健康」を目指して ――鍼灸師30年の思い','https://note.com/hari4939/n/n93db7f68bc42'],
+['【健康になる練習 その６】体の調子が良くなることを考える練習！','https://note.com/hari4939/n/n2a372ff2e017'],
+['【健康になる練習 その５】一番体調が良くなるお風呂の入り方の練習！','https://note.com/hari4939/n/nae1467af55b2'],
+['【健康になる練習 その4】自分なりのベストな方法があります！','https://note.com/hari4939/n/n2141ea59ec46'],
+['【健康になる練習 その3】体を大切にするという本当の意味！','https://note.com/hari4939/n/ndb21022960a7'],
+['【健康になる練習 その2】宇宙であなた一人の権利を実行！','https://note.com/hari4939/n/n4724008c7dd8'],
+['【健康になる練習 その1】うまくできるようになれば一生の宝です！','https://note.com/hari4939/n/n6a85f871a28a'],
+],
+m6:[
+['なぜ、手首の脈だけで全身がわかるのか？──『難経』一難に学ぶ、東洋医学の生命観','https://note.com/hari4939/n/ncd828f8cbf93'],
+['2000年以上前の東洋医学が、すでに「眠れない理由」を説明していた','https://note.com/hari4939/n/na993ed994cb6'],
+['宇宙もカラダも同じリズムで動いている――陰陽という古代の知恵','https://note.com/hari4939/n/n621e6e5315ae'],
+['鍼治療の原点にある「心と身体のつながり」——黄帝内経・霊枢「本神篇」を読む','https://note.com/hari4939/n/n576b6d27a4b5'],
+['2000年前の医学書が教える、体と宇宙のつながり──『黄帝内経・素問』陰陽応象大論を読む','https://note.com/hari4939/n/n982e08d123e3'],
+['なぜ人は老いるのか？黄帝内経・素問『上古天真論』に学ぶ養生の知恵！','https://note.com/hari4939/n/naf7e75c8e1a3'],
+['【養生訓とは？】「300年前の健康本に学ぶ、長生きの秘密」','https://note.com/hari4939/n/nd34eda798312'],
+['健康でいるための試み','https://note.com/hari4939/n/n3e51b63db20d'],
+['新しい朝が来た、希望の朝だ','https://note.com/hari4939/n/n3ac65a0a2abb'],
+['平均寿命の男女差は、体をこまめに動かす時間の差？','https://note.com/hari4939/n/n5ee501826ee1'],
+['学校や会社に行けなくなる1つの考え方','https://note.com/hari4939/n/n5e69c6b215fe'],
+['情報量と健康のバランス','https://note.com/hari4939/n/na7ff8fc96d6d'],
+['こだわらないための３秒ルール','https://note.com/hari4939/n/na9d6dc5d859b'],
+['心臓に「ありがとう」と言った経験はありますか？','https://note.com/hari4939/n/nd516ae83dea4'],
+['健康の平均点が下がっている？','https://note.com/hari4939/n/nacb76a7fbacd'],
+['体の中にあるエネルギーのバロメーター','https://note.com/hari4939/n/n2d94c7ea2422'],
+['過去を書きかえ、今に集中し、未来を想像・創造する','https://note.com/hari4939/n/n35a0d5d4f81a'],
+['今、健康でいるために大切なこと','https://note.com/hari4939/n/n50e38124f60d'],
+],
+};
+
+const ALL=[];
+MAG_ORDER.forEach(k=>{
+  RAW[k].forEach(([title,url],i)=>{
+    ALL.push({mag:k,num:i+1,title,url});
+  });
+});
+
+let currentCat='すべて',currentQ='';
+
+function render(){
+  let list=ALL;
+  if(currentCat!=='すべて') list=list.filter(v=>v.mag===currentCat);
+  if(currentQ){const q=currentQ.toLowerCase();list=list.filter(v=>v.title.toLowerCase().includes(q));}
+
+  document.getElementById('countBar').innerHTML=`全 <span>${ALL.length}</span> 記事 ／ 表示中 <span>${list.length}</span> 記事`;
+
+  if(!list.length){document.getElementById('content').innerHTML='<div class="empty">該当する記事が見つかりませんでした。</div>';return;}
+
+  const groups={};
+  list.forEach(v=>{if(!groups[v.mag])groups[v.mag]=[];groups[v.mag].push(v);});
+
+  let html='';
+  MAG_ORDER.forEach(mag=>{
+    if(!groups[mag])return;
+    const arts=groups[mag],meta=MAG_META[mag];
+    html+=`<section class="section">
+      <div class="section-header">
+        <div class="section-title"><div class="section-icon" style="background:${meta.color}18;color:${meta.color}">${meta.icon}</div>${meta.title}</div>
+        <span class="section-count">${arts.length}記事</span>
+      </div>
+      <div class="card-grid">
+        ${arts.map(v=>`<a class="card" href="${v.url}" target="_blank" style="--cat-color:${meta.color}">
+          <div class="card-platform"><span class="note-badge">n</span>note</div>
+          <div class="card-title"><span class="card-num">${v.num}.</span> ${v.title}</div>
+        </a>`).join('')}
+      </div>
+    </section>`;
+  });
+  document.getElementById('content').innerHTML=html;
+}
+
+document.getElementById('searchInput').addEventListener('input',e=>{currentQ=e.target.value;render();});
+document.getElementById('filterTabs').addEventListener('click',e=>{
+  const b=e.target.closest('.filter-tab');if(!b)return;
+  document.querySelectorAll('.filter-tab').forEach(x=>x.classList.remove('active'));
+  b.classList.add('active');currentCat=b.dataset.cat;render();
+});
+
+render();
+</script>
+</body>
+</html>
